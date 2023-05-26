@@ -17,8 +17,8 @@
 \affiliation[a]{Physics Department, National Technical University, 157 80 Zografou, Athens, Greece}
 \emailAdd{leonidas.kalousis@gmail.com}
 
-\abstract{The purpose of the present publication is to offer an analytical model that can be used for the calibration of photomultiplier tubes (PMTs). 
-The derivation of the mathematical formulae involved is discussed extensively and we apply this machinery to a real problem; the gain determination of the R7081 Hamamatsu PMT. 
+\abstract{The purpose of the present article is to offer an analytical model that can be used for the calibration of photomultiplier tubes (PMTs). 
+The derivation of the mathematical formulae is discussed extensively and we apply this machinery to a real problem; the gain determination of the R7081 Hamamatsu PMT. 
  We hope that our work can provide a third, powerful alternative to the task of gain deconvolution. 
  We also believe that the techniques explained in this article can be applied to other problems in PMT calibration and monitoring. }
 
@@ -99,7 +99,7 @@ S^{(n)}_R(x) & = \sum_{m=0}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n
                      & = (1-w)^n (g_{n} *B )(x) + \sum_{m=1}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{m-n} *B )(x), \label{eq:snr1}
 \end{align}
 where the $f_m(x)$ and $g_{n-m}(x)$ are the $m$-times and $(n-m)$-times convolutions of $f(x)$ and $g(x)$ respectively. 
-In this last step we made use of the binomial expansion for $S_n(x)$ \cite{binom}. 
+In this last step we made use of the binomial expansion for $S_n(x)$ \cite{error}. 
 The formula can be simplified by setting:
 \begin{align}
 G_n(x) = (g_{n} *B )(x), 
@@ -136,7 +136,7 @@ The convolution between $f(x)$ and $B(x)$ is given by the equation:
 \begin{align}
 (f*B)(x)  = \ \frac{\alpha}{2} e^{\frac{\alpha^2\sigma_0^2}{2}} e^{-\alpha (x-Q_0)} \ \text{erfc}\left( \frac{Q_0 + \alpha\sigma_0^2 - x }{\sqrt{2}\sigma_0} \right),
 \end{align}  
-where erfc is the complementary error function~\cite{erf}.
+where erfc is the complementary error function~\cite{error}.
 On the other hand, $(g*B)(x)$ equals to:
 \begin{align}
 (g*B)(x)  = \ \frac{1}{2} \frac{1}{g_N} \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma_0^2 + \sigma^2}} \ e^{ -\frac{ (x-Q_0-Q)^2 }{2(\sigma_0^2 + \sigma^2)}} 
@@ -191,7 +191,7 @@ e^{ -\psi^2 } \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \rig
 \end{cases}
 \nonumber
 \end{align} 
-where $M(a,b,z)$ and $U(a,b,z)$ are the \emph{confluent hypergeometric functions} of the first and second kind respectively. 
+where $M(a,b,z)$ and $U(a,b,z)$ are the \emph{confluent hypergeometric functions} of the first and second kind respectively~\cite{error}. 
 The derivation can be found in the appendix~\ref{app:Imn}. 
 The variables $\omega$ and $\psi$ are given by the relations:
 \begin{align}
@@ -489,14 +489,15 @@ We also wish to thank C.~Bobeth for encouraging us to continue and complete this
 \bibitem{me2} L. N. Kalousis {et al.}, \emph{A fast numerical method for photomultiplier calibration},\\  
 \href{https://iopscience.iop.org/article/10.1088/1748-0221/15/03/P03023}{\emph{JINST} {\bf 15} (2020) P03023}.
 
-\bibitem{binom} \href{https://en.wikipedia.org/wiki/Binomial_theorem}{https://en.wikipedia.org/wiki/Binomial\_theorem}
+\bibitem{error} M. Abramowitz and I. A. Stegun, \emph{Handbook of Mathematical Functions: with Formulas, Graphs, \\ and Mathematical Tables}, Dover Publications, 0009-Revised edition (June 1, 1965).  
 
-\bibitem{erf} \href{https://en.wikipedia.org/wiki/Error_function}{https://en.wikipedia.org/wiki/Error\_function}
+%\bibitem{binom} \href{https://en.wikipedia.org/wiki/Binomial_theorem}{https://en.wikipedia.org/wiki/Binomial\_theorem}
+%\bibitem{erf} \href{https://en.wikipedia.org/wiki/Error_function}{https://en.wikipedia.org/wiki/Error\_function}
 
 \bibitem{me} L. N. Kalousis {et al.}, \emph{Calibration of the Hamamatsu R7081 photomultiplier tube}, \\ \emph{submitted to JINST} 
 [\href{https://arxiv.org/abs/2304.07292}{\texttt{arXiv:2304.07292}}]. 
 
-\bibitem{git} \href{https://github.com/kalousis/PMTCalib}{https://github.com/lkalousis/PMTCalib}
+\bibitem{git} \href{https://github.com/lkalousis/PMTCalib}{https://github.com/lkalousis/PMTCalib}
 
 \bibitem{math} Wolfram Research, Inc. (\href{www.wolfram.com}{www.wolfram.com}), Mathematica Online, Champaign, IL (2022).
 
