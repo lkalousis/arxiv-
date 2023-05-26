@@ -93,7 +93,9 @@ and
 \begin{align}
 g(x) = \frac{1}{g_N} \frac{1}{\sqrt{2\pi}\sigma} \ e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ H(x). 
 \end{align}
-The principal $S^{(n)}_R(x)$ functions can then be written as:
+Note that photoelectrons that backscatter and miss the first amplification stage are modeled in the SPE function through the exponential $f(x)$ term. 
+The $w$ pre-factor parametrizes the probability for this process to occur. A better discussion of this, with further experimental tests, can be found in ref.~\cite{dossi}. 
+The principal $S^{(n)}_R(x)$ functions are equal to: %can then be written as:
 \begin{align}
 S^{(n)}_R(x) & = \sum_{m=0}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x)\nonumber \\
                      & = (1-w)^n (g_{n} *B )(x) + \sum_{m=1}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{m-n} *B )(x), \label{eq:snr1}
@@ -130,7 +132,7 @@ On the other hand, the $n=1$ term recieves two contributions:
 \begin{align}
 S^{(1)}_R(x)  = w (f*B)(x) + (1-w)(g*B)(x). 
 \end{align}                     
-We begin with the formula of $(f*B)(x)$ and we then write down $(g*B)(x)$.
+We begin with the formula of $(f*B)(x)$ and then write down $(g*B)(x)$.
 
 The convolution between $f(x)$ and $B(x)$ is given by the equation:
 \begin{align}
