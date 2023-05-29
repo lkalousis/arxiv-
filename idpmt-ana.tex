@@ -51,7 +51,7 @@ for the the first photoelectron (PE) peaks and approximates higher order correct
 \item A novel technique, based on the Discrete Fourier Transform (DFT), that calculates the charge response function $S_R(x)$ numerically for all orders in the Poisson mean $\mu$~\cite{me2}. 
 \end{enumerate}
 Both procedures give consistent results when carefully applied. 
-In this article, we have tried to solve the Dossi model analytically offering thus a third solution to this task. 
+In this article, we have tried to solve the Dossi model analytically, offering thus a third solution to this task. 
 Therefore, no new results are obtained. Nonetheless, it is always a rare pleasure to discover new solutions to old riddles. 
 Moreover, we hope that this new approach can provide answers to problems where the aforementioned methods fail for one reason or the other. 
 
@@ -189,7 +189,7 @@ I_{m,n} =
 2\sqrt{\pi}   e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|},  & \omega>0 \ \text{and} \  \omega^2 \gg 0\\
 e^{\omega^2 -\psi^2 } \left(\  \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  
 + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)   \    \right), &  \omega > 0  \\
-e^{ -\psi^2 } \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) \frac{1}{\sqrt{\pi}} U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), & \omega<0
+\frac{ e^{ -\psi^2 } }{\sqrt{\pi}}   \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), & \omega<0
 \end{cases}
 \nonumber
 \end{align} 
@@ -264,8 +264,8 @@ $\mu$                      & Gain from the DFT method  	       & Gain from the a
 %
 In this article we have a have presented an analytical model that can be used for the calibration of PMTs whenever the SPE response can be parameterized by eq.~\ref{eq:S}.  
 The various mathematical formulae were derived with great detail and attention was paid to showcase the approximations needed for the final solution. 
-We should emphasize that while the equations might seem, at first glance, both complicated and unnecessarily elaborate we find that the model is quite simple 
-and that it can be employed with the same efficacy as the already establish approaches. 
+We should emphasize that while the equations might seem, at first glance, both complicated and unnecessarily elaborate, 
+we find that the model is quite simple and that it can be employed with the same efficacy as the already establish approaches. 
 Data from a R7081 PMT were analyzed and the results were in excellent agreement with those obtained using the DFT method. 
 In particular, the gain parameter of the PMT was remarkably stable within the $\mu$~$\sim$~0.5 - 2.0 plateau. 
 The code used for these investigations exists in a public repository~\cite{git}.  
@@ -280,8 +280,6 @@ Of course, the procedure outlined in this publication can be used to study furth
 For instance, it could be employed to probe the photoelectron detection efficiency (PDE) of PMTs with characteristics similar to the Hamamatsu R7081. 
 
 
-
-%\newpage
 \appendix
 %
 
@@ -467,7 +465,7 @@ U(a,b,z) = \frac{\Gamma(1-b) }{\Gamma(a+1-b)}M(a,b,z) + \frac{\Gamma(b-1) }{\Gam
 \end{align}
 and write $I_{m,n}$ as:
 \begin{align}
-I_{m,n} = e^{ -\psi^2 } \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) \frac{1}{\sqrt{\pi}} U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right). 
+I_{m,n} = \frac{ e^{ -\psi^2 } }{ \sqrt{\pi} }\Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right). 
 \end{align}
 We note that a similar  asymptotic relation for $U(a,b,z)$ can be written for $\omega<0$ and $\omega^2 \gg 0$. 
 
