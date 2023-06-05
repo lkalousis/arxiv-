@@ -38,8 +38,8 @@ Data analysis}
 % 
 
 The standard machinery for photomultiplier tube (PMT) calibration has been presented in an influential paper written by E. H. Bellamy and collaborators, ref.~\cite{bellamy}. 
-Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function that can treat a vast number of PMTs. 
-It was based on a carefully chosen combination of an exponential and a truncated gaussian distribution, ref.~\cite{dossi}:
+Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function that can treat a vast number of PMTs~\cite{dossi}. 
+It was based on a carefully chosen combination of an exponential and a truncated gaussian distribution:
 \begin{align}
 S(x) =    \left( \ w \alpha e^{-\alpha x } + (1-w)\frac{1}{g_N} \frac{1}{\sqrt{2\pi}\sigma} e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ \right) H(x).       \label{eq:S}
 \end{align}
@@ -98,7 +98,7 @@ The $w$ pre-factor parametrizes the probability for this process to occur. A bet
 The principal $S^{(n)}_R(x)$ functions are equal to: %can then be written as:
 \begin{align}
 S^{(n)}_R(x) & = \sum_{m=0}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x)\nonumber \\
-                     & = (1-w)^n (g_{n} *B )(x) + \sum_{m=1}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{m-n} *B )(x), \label{eq:snr1}
+                     & = (1-w)^n (g_{n} *B )(x) + \sum_{m=1}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x), \label{eq:snr1}
 \end{align}
 where the $f_m(x)$ and $g_{n-m}(x)$ are the $m$-times and $(n-m)$-times convolutions of $f(x)$ and $g(x)$ respectively. 
 In this last step we made use of the binomial expansion for $S_n(x)$ \cite{error}. 
@@ -502,7 +502,7 @@ We also wish to thank C.~Bobeth for encouraging us to continue and complete this
 %\bibitem{binom} \href{https://en.wikipedia.org/wiki/Binomial_theorem}{https://en.wikipedia.org/wiki/Binomial\_theorem}
 %\bibitem{erf} \href{https://en.wikipedia.org/wiki/Error_function}{https://en.wikipedia.org/wiki/Error\_function}
 
-\bibitem{me} L. N. Kalousis {et al.}, \emph{Calibration of the Hamamatsu R7081 photomultiplier tube}, \\ \emph{submitted to JINST} 
+\bibitem{me} L. N. Kalousis, \emph{Calibration of photomultiplier tubes},\\ \emph{submitted to JINST} 
 [\href{https://arxiv.org/abs/2304.07292}{\texttt{arXiv:2304.07292}}]. 
 
 \bibitem{git} \href{https://github.com/lkalousis/PMTCalib}{https://github.com/lkalousis/PMTCalib}
