@@ -1,43 +1,153 @@
-%
-%
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
 
-\documentclass[a4paper,11pt]{article}
+\documentclass[preprint,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{amsmath}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{lscape}
+\usepackage{rotating}
 \pdfoutput=1 
 
-\usepackage{jinstpub} 
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
 
-\usepackage{lineno}
-%\linenumbers
-
-\usepackage{enumerate}
-
-\title{\boldmath An analytical model for photomultiplier tube calibration}
-
-\author[a]{L. N. Kalousis}
-\affiliation[a]{Physics Department, National Technical University, 157 80 Zografou, Athens, Greece}
-\emailAdd{leonidas.kalousis@gmail.com}
-
-\abstract{The purpose of the present article is to offer an analytical model that can be used for the calibration of photomultiplier tubes (PMTs). 
-The derivation of the mathematical formulae is discussed extensively and we apply this machinery to a real problem; the gain determination of the R7081 Hamamatsu PMT. 
- We hope that our work can provide a third, powerful alternative to the task of gain deconvolution. 
- We also believe that the techniques explained in this article can be applied to other problems in PMT calibration and monitoring. }
-
-\keywords{Photon detectors for UV, visible and IR photons (vacuum) (photomultipliers, HPDs, others); 
-Detector alignment and calibration methods (lasers, sources, particle-beams);
-Analysis and statistical methods; 
-Data analysis}
-
-\arxivnumber{2304.08735} 
+\journal{Nuclear Instruments and Methods A}
 
 \begin{document}
-\maketitle
-\flushbottom
 
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
+
+\title{An analytical model for photomultiplier tube calibration}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author{Leonidas N. Kalousis}
+
+\affiliation{organization={Physics Department, National Technical University},%Department and Organization
+            %addressline={}, 
+            city={Zografou},
+            postcode={15780}, 
+            state={Athens},
+            country={Greece}}
+
+\begin{abstract}
+%% Text of abstract
+
+The purpose of the present article is to offer an analytical model that can be used for the calibration of photomultiplier tubes (PMTs). 
+The derivation of the mathematical formulae is discussed extensively and we apply this machinery to a real problem; the gain determination of the R7081 Hamamatsu PMT. 
+ We hope that our work can provide a third, powerful alternative to the task of gain determination. 
+ We also believe that the techniques explained in this article can be applied to other problems in PMT calibration. % and monitoring. 
+ 
+\end{abstract}
+
+%%Graphical abstract
+%\begin{graphicalabstract}
+%\includegraphics{grabs}
+%\end{graphicalabstract}
+
+%%Research highlights
+%\begin{highlights}
+%\item Research highlight 1
+%\item Research highlight 2
+%\end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Photomultiplier tube (PMT), Calibration, PMT charge response model, PMT gain, Analysis method
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
 \section{Introduction}
 \label{sec:intro}
-% 
 
-The standard machinery for photomultiplier tube (PMT) calibration has been presented in an influential paper written by E. H. Bellamy and collaborators, ref.~\cite{bellamy}. 
+The standard machinery for photomultiplier tube (PMT) calibration has been presented in an influential paper written by E. H. Bellamy and collaborators~\cite{bellamy}. 
 Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function that can treat a vast number of PMTs~\cite{dossi}. 
 It was based on a carefully chosen combination of an exponential and a truncated gaussian distribution:
 \begin{align}
@@ -47,18 +157,23 @@ The mathematical formulae involved in the Dossi model are rather complicated and
 Up to now, two main approaches are available for the deduction of the charge response function $S_R(x)$.
 \begin{enumerate}[i.]
 \item  A method that computes the convolution integrals numerically, using a recursive algorithm, 
-for the the first photoelectron (PE) peaks and approximates higher order corrections with symmetric gaussians~\cite{dossi,darkside}. 
-\item A novel technique, based on the Discrete Fourier Transform (DFT), that calculates the charge response function $S_R(x)$ numerically for all orders in the Poisson mean $\mu$~\cite{me2}. 
+for the the first photoelectron (PE) peaks and approximates higher order corrections with symmetric gaussians~\cite{dossi}. 
+\item A novel technique, based on the Discrete Fourier Transform (DFT), that calculates the charge response function $S_R(x)$ numerically for all orders in the Poisson mean $\mu$~\cite{me}. 
 \end{enumerate}
 Both procedures give consistent results when carefully applied. 
 In this article, we have tried to solve the Dossi model analytically, offering thus a third solution to this task. 
-Therefore, no new results are obtained. Nonetheless, it is always a rare pleasure to discover new solutions to old riddles. 
-Moreover, we hope that this new approach can provide answers to problems where the aforementioned methods fail for one reason or the other. 
+%Therefore, no new results are obtained. 
+Nonetheless, it is always preferable to have an analytical formula at hand since: 
+(a) An exact formula is expected to run faster and 
+(b) It is devoid of possible numerical issues that can destabilize the aforementioned methods.  
+%Nonetheless, it is always a rare pleasure to discover new solutions to old riddles. 
+%Moreover, we hope that this new approach can provide answers to problems where the aforementioned methods fail for one reason or the other. 
 
 The paper is organized as follows. 
-In section~\ref{sec:mod} we present in great detail the calculations that lead to the analytical model we put forward. 
+In Section~\ref{sec:mod} we present in great detail the calculations that lead to the analytical model we put forward. 
 It should be emphasized from the onset that, while the mathematics might seem unnecessary and elaborate at first glance, the final equations are rather simple and easy to implement. 
-In section~\ref{sec:res} we apply this formula to the calibration of the Hamamatsu R7081 PMT. 
+In Section~\ref{sec:sim} we analyze generated data to assess the validity of the model. 
+Finally, in Section~\ref{sec:res} we apply this formula to a real problem; the calibration of the Hamamatsu R7081 PMT. 
 Attention was paid to showcase that the analytical model provides consistent figures with the already established methods. 
 We close this publication with some general remarks concerning further uses of this mathematical scheme. 
 
@@ -72,7 +187,7 @@ We close this publication with some general remarks concerning further uses of t
 
 The charge response of a PMT, when illuminated with light pulses of constant number of photons, is dictated by the function $S_R(x)$:
 \begin{align}
-S_R(x) = \sum_{n=0}^{+\infty} P(n;\mu) S^{(n)}_R(x),
+S_R(x) = \sum_{n=0}^{+\infty} P(n;\mu) S^{(n)}_R(x), \label{eq:SR}
 \end{align}
 where 
 \begin{align}
@@ -80,10 +195,10 @@ S^{(n)}_R(x) = (S_n*B)(x).
 \end{align}
 $ P(n;\mu)$ is the Poisson distribution with mean value $\mu$. 
 $S_n(x)$ corresponds to the $n$-times convolution of the SPE response function $S(x)$ and $B(x)$ refers to the pedestal. 
-An extensive review describing the main steps in PMT calibration can be found elsewhere~\cite{me2}. 
+An extensive review describing the main steps in PMT calibration can be found elsewhere~\cite{me}. 
 Let us assume, following the paper of Dossi \emph{et~al.}, that the SPE charge amplification can be written as:
 \begin{align}
-S(x) = w f(x) + (1-w)g(x),
+S(x) = w f(x) + (1-w)g(x), \label{eq:S}
 \end{align}
 where 
 \begin{align}
@@ -98,7 +213,8 @@ The $w$ pre-factor parametrizes the probability for this process to occur. A bet
 The principal $S^{(n)}_R(x)$ functions are equal to: %can then be written as:
 \begin{align}
 S^{(n)}_R(x) & = \sum_{m=0}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x)\nonumber \\
-                     & = (1-w)^n (g_{n} *B )(x) + \sum_{m=1}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x), \label{eq:snr1}
+                     & = (1-w)^n (g_{n} *B )(x) \nonumber \\
+                    & + \sum_{m=1}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x), \label{eq:snr1}
 \end{align}
 where the $f_m(x)$ and $g_{n-m}(x)$ are the $m$-times and $(n-m)$-times convolutions of $f(x)$ and $g(x)$ respectively. 
 In this last step we made use of the binomial expansion for $S_n(x)$ \cite{error}. 
@@ -144,7 +260,7 @@ On the other hand, $(g*B)(x)$ equals to:
 (g*B)(x)  = \ \frac{1}{2} \frac{1}{g_N} \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma_0^2 + \sigma^2}} \ e^{ -\frac{ (x-Q_0-Q)^2 }{2(\sigma_0^2 + \sigma^2)}} 
 \ \text{erfc}\left(  \frac{ Q_0\sigma^2 -Q\sigma_0^2 -x \sigma^2  }{\sqrt{2} \sigma_0\sigma\sqrt{\sigma_0^2 + \sigma^2} }   \right).
 \end{align}  
-The proof of both these formulae is challenging and interesting in its own right and it is presented in the appendix~\ref{app:sr1} with great care. 
+The proof of both these formulae is challenging and interesting in its own right and it is presented in the \ref{app:sr1} with great care. 
 
 \subsection{Gaussian approximation of $G_n(x)$}
 %
@@ -166,7 +282,7 @@ Q_n  = Q_0 + n Q_g, \\
 \sigma_n^2 = \sigma_0^2 + n \sigma_g^2.  
 \end{align}   
 Since several convolutions are involved, the truncation of $g(x)$ at negative values of charge should have little impact on the final result.  
-$Q_g$ and $\sigma_g$ are the mean value and standard deviation of $g(x)$ and their exact formulae can be found in ref.~\cite{me}.
+$Q_g$ and $\sigma_g$ are the mean value and standard deviation of $g(x)$ and their exact formulae can be found in ref.~\cite{me2}.
 
 
 \subsection{$h_{m,n}(x)$ in terms of hypergeometric functions}
@@ -186,10 +302,10 @@ The expression for $I_{n,m}$ turns out to be:
 \begin{align}
 I_{m,n} = 
 \begin{cases}
-2\sqrt{\pi}   e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|},  & \omega>0 \ \text{and} \  \omega^2 \gg 0\\
-e^{\omega^2 -\psi^2 } \left(\  \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  
-+ 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)   \    \right), &  \omega > 0  \\
-\frac{ e^{ -\psi^2 } }{\sqrt{\pi}}   \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), & \omega<0
+2\sqrt{\pi}   e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|}, \ \omega>0 \ \text{and} \  \omega^2 \gg 0\\
+e^{\omega^2 -\psi^2 } \left( \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  
++ 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)       \right), \ \omega > 0  \\
+\frac{ e^{ -\psi^2 } }{\sqrt{\pi}}   \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), \ \omega<0
 \end{cases}
 \nonumber
 \end{align} 
@@ -206,65 +322,137 @@ The variables $\omega$ and $\psi$ are given by the relations:
 %\end{align}  
 %In our case the constant $c$ was set to twenty and that was enough for our investigations. 
 Note that an asymptotic formula can be applied to $U(a,b,c)$ as well, for $\omega < 0$ and $\omega^2 \gg 0$, but this was not necessary in our work. 
-Note also that for large $n$ the $h_{m,n}(x)$ functions can be approximated by symmetric gaussians to simplify the equations but, again, this was not done in this study. 
+Note also that for $n\geq10$ the $S_n(x)$ functions were approximated by symmetric gaussians to simplify the equations. 
+% but, again, this was not done in this study. 
+
+\section{Generated data}
+\label{sec:sim}
+
+We remind the reader that the model, presented in the previous section, involves the following approximations:
+\begin{enumerate}[i.]
+\item All $G_n(x)$ functions for $n \geq 2$ were approximated with purely symmetric gaussians.
+\item The $G_n(x)$ functions involved in the calculations of $h_{n,m}(x)$ were replaced with perfect gaussians and,  
+\item $S_n(x)$ functions for $n\geq10$ were set equal to symmetric gaussians. 
+\end{enumerate}
+To understand the validity of these approximations, and assess the accuracy of the resulting model, we analyzed series of toy Monte Carlo data.  
+PMT charge spectra were generated following the algorithm:
+\begin{enumerate}[i.]
+\item First, a number of PEs was thrown from a Poisson distribution of mean value $\mu$. 
+\item For each PE, a charge was picked randomly from the SPE distribution of eq.~\eqref{eq:S}.
+The total charge was calculated by summing the individual charges that each PE deposits.
+\item A charge was thrown from the gaussian distribution of the pedestal and summed to the total charge obtained in step two.
+\item The final, total charge was filled in a histogram.
+\item This procedure was repeated $2.5\ 10^6$ times and a histogram of $2.5\ 10^6$ entries was produced.
+\end{enumerate}
+
+\begin{figure}[!t]
+\centering
+%\begin{tabular}{c c}
+\includegraphics[width=11.0cm, height=7.25cm]{figures/mc-fit-2.pdf} \\
+\includegraphics[width=11.0cm, height=7.25cm]{figures/mc-fit-3.pdf} \\
+%\end{tabular} \\[1.5ex]
+%\includegraphics[width=10.0cm, height=6.0cm]{figures/mc-fit-3.pdf} 
+\caption{ A few fits obtained with the analytical model. 
+Black dots show the generated data and the azure line shows the best fit. The dashed lines show the contributions from the several PE peaks. }
+\label{fig:spes}
+\end{figure}
+Examples of such distributions are shown in figure~\ref{fig:spes}. 
+For all the histograms treated in this study, a simple gaussian fit was first performed around the maximum of the distribution to extract the mean ($Q_0$) and standard deviation ($\sigma_0$) of the pedestal. 
+$Q_0$ and $\sigma_0$ were then fixed within a $\pm$ 2.5~\% tolerance. 
+Additionally, the fit around the pedestal provided the normalization of the zero PE peak ($N_0$). 
+An estimate of the mean number of PEs was given by the formula: 
+\begin{align}
+\mu \simeq - \ln \left(  \frac{N_0}{\ N_{tot}} \right),  
+\label{eq:muestim}
+\end{align}
+and was input as an initial value to aid the minimizer. 
+$N_{tot}$ is the total number of entries and eq.~\eqref{eq:muestim} is obtained from $P(0; \mu ) = e^{-\mu}$. 
+The initial value of $Q$ was set to: 
+\begin{align}
+\frac{ \bar x - Q_0 }{\mu}
+\label{eq:laestim}
+\end{align}
+where $\bar x$ is the mean of the charge histogram. 
+Finally, $w$ was first set to 0.2 and limited between 0.0 and 0.6 (since for every well-functioning PMT the probability of badly amplified PEs cannot be larger than 60~\%).
+Figure~\ref{fig:spes} shows a few examples of distributions fitted with the analytical model. 
+The black dots show the generated data and the azure line shows the best fit. 
+One can see that in both cases the fitted line follows closely the data and the $\chi^2$ over the number of degrees of freedom (NDOF) was always close to one. 
+We also note that the software used for these studies exists in a public repository~\cite{git}. 
+
+Additionally, sets of one hundred toy data were generated for different values of $\mu$ inside the 0.5 -- 5.0 range. 
+For each set of one hundred toys, the distribution of the relative deviation from the true gain ($Q_s$):
+\begin{align}
+\Delta Q_s = \frac{ Q_s^\prime - Q_s }{ Q_s }
+\label{eq:laestim}
+\end{align}
+was plotted. We note that:
+\begin{align}
+ Q_s = \frac{w}{\alpha} + (1-w)Q_g
+\label{eq:laestim}
+\end{align}
+where $Q_g$ is the mean value of $g(x)$\footnote{The formulae of $Q_s$ and $Q_g$ together with their derivation can be found in \cite{me2}. } and $Q_s^\prime$ is the gain parameter returned by the minimizer.
+Figure~\ref{fig:dev} shows the results of this exercise. 
+The $x$ axis shows $\mu$ and the $y$ axis shows the mean value of the $\Delta Q_s$ distribution. 
+Furthermore, to understand the effect of the truncation of the gaussian part of SPE,  data sets with different $\sigma/Q$ were analyzed. 
+The results with $\sigma/Q$= 25 \% (black), 35 \% (green) and 45 \% (red) are shown in figure~\ref{fig:dev}. 
+One can see that the inside the $\sigma/Q$ = 25 -- 35 \% range the model extracts the gain with excellent accuracy. 
+At the high\footnote{And unrealistic for modern PMTs.} value of $\sigma/Q$ = 45 \% there is a deviation from the true gain of $\sim$ 1.0 \% for $\mu = 5$.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12.0cm, height=8.25cm]{figures/DQs.pdf} \\
+\caption{ Accuracy of the analytical model for different values of $\mu$ and $\sigma/Q$. }
+\label{fig:dev}
+\end{figure}
 
 
 \section{Calibration of the Hamamatsu R7081 photomultiplier}
 \label{sec:res}
-%
 
 \subsection{Results}
 
 Several data sets were taken with a Hamamatsu R7081 PMT. 
-The details of the experimental setup have been described before in ref.~\cite{me2} and will not be repeated here. 
+The details of the experimental setup have been described before in ref.~\cite{me} and will not be repeated here. 
 In a nutshell, the R7081 PMT was placed inside a dark, light-tight box. Light pulses were created by a light emitting diode (LED) connected to a fast pulse generator. 
 The photons were carried inside the box through an optical fiber and the signals from the PMT were readout by a LeCroy WavePro 725Zi oscilloscope.   
 The setup triggered on the generator's second, duplicated channel and all signals were recorded. Including those with no photons at all (pedestal). 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=11.3cm, height=7.8cm]{figures/fit-1.pdf} \\[1.5ex]
-\includegraphics[width=11.3cm, height=7.8cm]{figures/fit-3.pdf} %\\
+\includegraphics[width=11.3cm, height=7.8cm]{figures/fit-1-b.pdf} \\[1.5ex]
+\includegraphics[width=11.3cm, height=7.8cm]{figures/fit-3-b.pdf} %\\
 \caption{A few fits obtained using the analytical model of $S_R(x)$.  The data are shown in the black dots and the best fit curve is shown in azure line. }
 \label{fig:spe}
 \end{figure}
-Figure~\ref{fig:spe} shows examples of two SPE charge distributions obtained through this procedure. 
-The chain followed by the analysis has been described before and it will not be repeated here as well.\footnote{See ref.~\cite{me2} for more details.} 
-We only note that the multidimensional fit of $S_R(x)$ is quite complicated and it is likely to fail unless good initial values and limits are set to the fitting parameters.  
-One can easily see, in figure~\ref{fig:spe}, that the best fit curve (azure line) follows closely the data points and that the model reproduces the experimental measurements. 
-In all cases the $\chi^2$/NDOF was close to one. 
-Table~\ref{tab:g} shows the gain obtained through the DFT method~\cite{me} and the analytical model. 
-We remind the reader that the gain $Q_s$ is given by:
-\begin{align}
-Q_s  = \frac{w}{\alpha} + (1-w)Q_g. 
-\end{align}
-The first row shows the Poisson mean $\mu$ extracted by the fitter for reference purposes. 
-One can observe that as $\mu$ increases the gain remains quite stable and the results between the DFT and the analytical model are almost identical. 
-We should also note that a drift in the gain is observed, but this is too small in magnitude.   
+Figure~\ref{fig:spe} shows  a few fits obtained with the $S_R(x)$ model put forward in this article. 
+The best fit curve (azure line) follows closely the data and the $\chi^2$/NDOF is always close to one. 
+To demonstrate that the fitting model is self-consistent and that extracts the correct $w$, $\alpha$, $Q$ and $\sigma$, several data were taken with varying LED intensity. 
+The results of the analysis are shown in table~\ref{tab:money}. 
+As the same PMT is used, the fit should output compatible values for all the parameters of $S(x)$ regardless of $\mu$. 
+The pedestal might drift or change, depending on the stability of the setup, but the SPE response should stay the same. 
 
-\begin{table}[t!]
+\begin{sidewaystable}[h!]
 \centering
-\begin{tabular}{| c  || c | c |}
-\hline
-$\mu$                      & Gain from the DFT method  	       & Gain from the analytical model           \\[0.6ex] \hline\hline
-0.543 $\pm$ 0.003  & 0.02620					       & 0.02619 						     				\\
-0.632 $\pm$ 0.003  & 0.02646					       & 0.02645					  	    				\\
-0.768 $\pm$ 0.003  & 0.02649					       & 0.02648					  	    				\\
-0.979 $\pm$ 0.003  & 0.02660					       & 0.02659					    	    				\\
-1.357 $\pm$ 0.005  & 0.02681					       & 0.02681					  	    				\\
-2.014 $\pm$ 0.008  & 0.02682					       & 0.02682				  			
+\begin{tabular}{| c  || c | c | c | c  || c |}
+\hline 
+$\mu$  &  $w$ &  $\alpha$ &  $Q$ &  $\sigma$ & $\chi^2$/NDOF\\[0.6ex] \hline\hline
+  0.544 $\pm$ 0.003 & 0.170 $\pm$  0.010 &  86 $\pm$ 10 & 0.02917  $\pm$ 0.00006 &  0.00789 $\pm$ 0.00008 & 1.52  \\
+  0.632 $\pm$ 0.003 & 0.181 $\pm$  0.008 &  71 $\pm$ 4   & 0.02920  $\pm$ 0.00006 &  0.00781 $\pm$ 0.00007 &  1.17 \\
+  0.769 $\pm$ 0.003 & 0.179 $\pm$  0.006 &  70 $\pm$ 3   & 0.02915  $\pm$ 0.00004 &  0.00784 $\pm$ 0.00005 &  1.59 \\
+ 0.979  $\pm$ 0.003 & 0.196 $\pm$  0.006 &  63 $\pm$ 2   & 0.02923  $\pm$ 0.00005 &  0.00773 $\pm$ 0.00005 &  1.85  \\
+ 1.357  $\pm$ 0.005 & 0.198 $\pm$  0.007 &  61 $\pm$ 2   & 0.02939  $\pm$ 0.00005 &  0.00777 $\pm$ 0.00006 &  1.68 \\
+ 2.014 $\pm$  0.008 & 0.197 $\pm$  0.007 &  61 $\pm$ 2   & 0.02935  $\pm$ 0.00006 &  0.00776 $\pm$ 0.00007 &  1.55
 \\[0.6ex] \hline\hline
 \end{tabular}
-\caption{Summary of the R7081 PMT calibration results.}
-\label{tab:g}
-\end{table}
-
+\caption{Summary of the R7081 PM calibration results.}
+\label{tab:money}
+\end{sidewaystable}
 
 
 \section{Outlook}
 \label{sec:outro}
 %
-In this article we have a have presented an analytical model that can be used for the calibration of PMTs whenever the SPE response can be parameterized by eq.~\ref{eq:S}.  
+In this article we have a have presented an analytical model that can be used for the calibration of PMTs whenever the SPE response can be parameterized by eq.~\eqref{eq:S}.  
 The various mathematical formulae were derived with great detail and attention was paid to showcase the approximations needed for the final solution. 
 We should emphasize that while the equations might seem, at first glance, both complicated and unnecessarily elaborate, 
 we find that the model is quite simple and that it can be employed with the same efficacy as the already establish approaches. 
@@ -282,12 +470,17 @@ Of course, the procedure outlined in this publication can be used to study furth
 For instance, it could be employed to probe the photoelectron detection efficiency (PDE) of PMTs with characteristics similar to the Hamamatsu R7081. 
 
 
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+
 \appendix
-%
+
+%% \section{}
+%% \label{}
 
 \section{$\int_{ x_1 }^{x_2}  e^{-a x^2 +b x +c } \ dx$ integral}
 \label{app:int}
-%
 
 The integral, 
 \begin{align}
@@ -318,7 +511,6 @@ In the last line we made use of the definition:
 I = &  \frac{1}{2}  \sqrt{\frac{\pi}{a} } e^{\frac{b^2}{4a}+c} \left( 1 - \text{erf}\left({ \frac{2a x_1 -b }{2\sqrt{a}} }\right) \right) \nonumber \\
   = & \frac{1}{2}  \sqrt{\frac{\pi}{a} } \ e^{\frac{b^2}{4a}+c} \ \text{erfc}\left({ \frac{2a x_1 -b }{2\sqrt{a}} }\right). \label{eq:intg}
 \end{align}
-
 
 \section{Formulae for $(f*B)(x)$ and $(g*B)(x)$}
 \label{app:sr1}
@@ -422,7 +614,7 @@ I^\prime = \int_{0}^{+\infty} u^{m-1} e^{  -\left( u - \omega \right)^2} du,
 was solved using the \emph{Mathematica} online software~\cite{math} and the result is:
 \begin{align}
 I^\prime = \frac{1}{2} e^{-\omega^2} 
-\left(\  \Gamma\left( \frac{m}{2} \right) M\left( \frac{m}{2}, \frac{1}{2}, \omega^2 \right)  + 2\omega \Gamma\left( \frac{m+1}{2} \right) M\left(\frac{m+1}{2}, \frac{3}{2}, \omega^2  \right) \ \right).  
+\left(  \Gamma\left( \frac{m}{2} \right) M\left( \frac{m}{2}, \frac{1}{2}, \omega^2 \right)  + 2\omega \Gamma\left( \frac{m+1}{2} \right) M\left(\frac{m+1}{2}, \frac{3}{2}, \omega^2  \right)  \right).  
 \end{align}
 Finally, and using the formulae for $I$ and $I^\prime$, $h_{m,n}(x)$ takes the form:
 \begin{align}
@@ -430,7 +622,7 @@ h_{m,n}(x) =  \frac{ \alpha (\alpha\sqrt{2} \sigma_{n-m})^{m-1}}{(m-1)!} \frac{1
 \end{align} 
 where $I_{m,n}$  is given by the equation:
 \begin{align}
-I_{m,n} = e^{-\psi^2} \left(\  \ \Gamma\left( \frac{m}{2} \right) M\left( \frac{m}{2}, \frac{1}{2}, \omega^2 \right)  + 2\omega \Gamma\left( \frac{m+1}{2} \right) M\left(\frac{m+1}{2}, \frac{3}{2}, \omega^2 \ \right) \ \right).  
+I_{m,n} = e^{-\psi^2} \left( \Gamma\left( \frac{m}{2} \right) M\left( \frac{m}{2}, \frac{1}{2}, \omega^2 \right)  + 2\omega \Gamma\left( \frac{m+1}{2} \right) M\left(\frac{m+1}{2}, \frac{3}{2}, \omega^2 \right) \right).  
 \end{align}
 
 \subsection*{$I_{m,n}$ case I: $\omega> 0$ and $\omega^2 \gg 0$ }
@@ -455,7 +647,7 @@ M(a,b,z) = e^z M(b-a,b,-z)
 \end{align}
 and $I_{m,n}$ becomes:
 \begin{align}
-I_{m,n} = e^{\omega^2 -\psi^2 } \left(\  \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)   \    \right).
+I_{m,n} = e^{\omega^2 -\psi^2 } \left(  \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  \nonumber \right. \\ \left. + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)     \right).
 \end{align}
 
 \subsection*{$I_{m,n}$ case III: $ \omega <0$}
@@ -471,45 +663,45 @@ I_{m,n} = \frac{ e^{ -\psi^2 } }{ \sqrt{\pi} }\Gamma\left( \frac{m}{2} \right)  
 \end{align}
 We note that a similar  asymptotic relation for $U(a,b,z)$ can be written for $\omega<0$ and $\omega^2 \gg 0$. 
 
+%% For citations use: 
+%%       \citet{<label>} ==> Jones et al. [21]
+%%       \citep{<label>} ==> [21]
+%%
 
-\acknowledgments
-%
+%% If you have bibdatabase file and want bibtex to generate the
+%% bibitems, please use
+%%
+%%  \bibliographystyle{elsarticle-num-names} 
+%%  \bibliography{<your bibdatabase>}
 
-The data used in this publication were taken in the laboratory of M. Dracos and we wish to thank him for allowing us to use them for the purposes of this communication. 
-We also wish to thank C.~Bobeth for encouraging us to continue and complete this study.
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
 
-%\paragraph{Note added.} This is also a good position for notes added
-%after the paper has been written.
+\begin{thebibliography}{00}
 
-% We suggest to always provide author, title and journal data:
-% in short all the informations that clearly identify a document.
-
-\begin{thebibliography}{99}
+%% \bibitem[Author(year)]{label}
+%% Text of bibliographic item
 
 \bibitem{bellamy} E. H. Bellamy {et al.}, \emph{Absolute Calibration and Monitoring of a spectrometric channel using a photomultiplier}, 
-\href{https://www.sciencedirect.com/science/article/pii/016890029490183X}{\emph{Nucl. Instrum. Meth.} {\bf A 339} (1994) 468-476}. 
+\emph{Nucl. Instrum. Meth.} {\bf A 339} (1994) 468-476. 
 
 \bibitem{dossi}  R. Dossi {et al.}, \emph{Methods for precise photoelectron counting with photomultipliers}, 
-\href{https://www.sciencedirect.com/science/article/pii/S0168900200003375}{\emph{Nucl. Instrum. Meth.} {\bf A 451} (2000) 623-637}.
+\emph{Nucl. Instrum. Meth.} {\bf A 451} (2000) 623-637.
 
-\bibitem{darkside} T. Alexander {et al.} (DarkSide Collaboration), \emph{Light Yield in DarkSide-10: a Prototype Two-phase Argon TPC for Dark Matter Searches}, 
-\href{https://www.sciencedirect.com/science/article/pii/S0927650513001254?via\%3Dihub}{\emph{Astropart. Phys.} {\bf 49} (2013) 44-51}.
-%[\href{https://arxiv.org/abs/1204.6218}{\texttt{arXiv:1204.6218}}]. 
+\bibitem{me} L. N. Kalousis {et al.}, \emph{A fast numerical method for photomultiplier calibration}, \emph{JINST} {\bf 15} (2020) P03023.
 
-\bibitem{me2} L. N. Kalousis {et al.}, \emph{A fast numerical method for photomultiplier calibration},\\  
-\href{https://iopscience.iop.org/article/10.1088/1748-0221/15/03/P03023}{\emph{JINST} {\bf 15} (2020) P03023}.
+\bibitem{error} M. Abramowitz and I. A. Stegun, \emph{Handbook of Mathematical Functions: with Formulas, Graphs, and Mathematical Tables}, Dover Publications, 0009-Revised edition (June 1, 1965).  
 
-\bibitem{error} M. Abramowitz and I. A. Stegun, \emph{Handbook of Mathematical Functions: with Formulas, Graphs, \\ and Mathematical Tables}, Dover Publications, 0009-Revised edition (June 1, 1965).  
+\bibitem{me2} L. N. Kalousis, \emph{Calibration of photomultiplier tubes}, \emph{JINST} {\bf 18} (2023) P07016.
 
-%\bibitem{binom} \href{https://en.wikipedia.org/wiki/Binomial_theorem}{https://en.wikipedia.org/wiki/Binomial\_theorem}
-%\bibitem{erf} \href{https://en.wikipedia.org/wiki/Error_function}{https://en.wikipedia.org/wiki/Error\_function}
+\bibitem{git} https://github.com/lkalousis/PMTCalib
 
-\bibitem{me} L. N. Kalousis, \emph{Calibration of photomultiplier tubes},\\ \emph{submitted to JINST} 
-[\href{https://arxiv.org/abs/2304.07292}{\texttt{arXiv:2304.07292}}]. 
+\bibitem{math} Wolfram Research, Inc. (www.wolfram.com), Mathematica Online, Champaign, IL (2022).
 
-\bibitem{git} \href{https://github.com/lkalousis/PMTCalib}{https://github.com/lkalousis/PMTCalib}
-
-\bibitem{math} Wolfram Research, Inc. (\href{www.wolfram.com}{www.wolfram.com}), Mathematica Online, Champaign, IL (2022).
 
 \end{thebibliography}
 \end{document}
+
+\endinput
+%%
+%% End of file `elsarticle-template-num-names.tex'.
