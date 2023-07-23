@@ -390,13 +390,13 @@ was plotted. We note that:
  Q_s = \frac{w}{\alpha} + (1-w)Q_g
 \label{eq:laestim}
 \end{align}
-where $Q_g$ is the mean value of $g(x)$\footnote{The formulae of $Q_s$ and $Q_g$ together with their derivation can be found in \cite{me2}. } and $Q_s^\prime$ is the gain parameter returned by the minimizer.
+where $Q_g$ is the mean value of $g(x)$\footnote{The formulae of $Q_s$ and $Q_g$ together with their derivation can be found in ref.~\cite{me2}. } and $Q_s^\prime$ is the gain parameter returned by the minimizer.
 Figure~\ref{fig:dev} shows the results of this exercise. 
 The $x$ axis shows $\mu$ and the $y$ axis shows the mean value of the $\Delta Q_s$ distribution. 
 Furthermore, to understand the effect of the truncation of the gaussian part of SPE,  data sets with different $\sigma/Q$ were analyzed. 
 The results with $\sigma/Q$= 25 \% (black), 35 \% (green) and 45 \% (red) are shown in figure~\ref{fig:dev}. 
-One can see that the inside the $\sigma/Q$ = 25 -- 35 \% range the model extracts the gain with excellent accuracy. 
-At the high\footnote{And unrealistic for modern PMTs.} value of $\sigma/Q$ = 45 \% there is a deviation from the true gain of $\sim$ 1.0 \% for $\mu = 5$.
+One can see that the inside the $\sigma/Q$ = 25 -- 35 \% window the model extracts the gain with excellent accuracy. 
+At the high value\footnote{And unrealistic for modern PMTs.}  of $\sigma/Q$ = 45 \% there is a deviation from the true gain of $\sim$ 1.0 \% for $\mu = 5$.
 
 \begin{figure}[!t]
 \centering
@@ -419,8 +419,8 @@ The setup triggered on the generator's second, duplicated channel and all signal
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=11.3cm, height=7.8cm]{figures/fit-1-b.pdf} \\[1.5ex]
-\includegraphics[width=11.3cm, height=7.8cm]{figures/fit-3-b.pdf} %\\
+\includegraphics[width=11.75cm, height=8.0cm]{figures/fit-1-b.pdf} \\[1.5ex]
+\includegraphics[width=11.75cm, height=8.0cm]{figures/fit-3-b.pdf} %\\
 \caption{A few fits obtained using the analytical model of $S_R(x)$.  The data are shown in the black dots and the best fit curve is shown in azure line. }
 \label{fig:spe}
 \end{figure}
@@ -431,23 +431,72 @@ The results of the analysis are shown in table~\ref{tab:money}.
 As the same PMT is used, the fit should output compatible values for all the parameters of $S(x)$ regardless of $\mu$. 
 The pedestal might drift or change, depending on the stability of the setup, but the SPE response should stay the same. 
 
-\begin{sidewaystable}[h!]
+\begin{table}[h!]
+\footnotesize
 \centering
-\begin{tabular}{| c  || c | c | c | c  || c |}
+\begin{tabular}{| c  || c | c | c | c |}
 \hline 
-$\mu$  &  $w$ &  $\alpha$ &  $Q$ &  $\sigma$ & $\chi^2$/NDOF\\[0.6ex] \hline\hline
-  0.544 $\pm$ 0.003 & 0.170 $\pm$  0.010 &  86 $\pm$ 10 & 0.02917  $\pm$ 0.00006 &  0.00789 $\pm$ 0.00008 & 1.52  \\
-  0.632 $\pm$ 0.003 & 0.181 $\pm$  0.008 &  71 $\pm$ 4   & 0.02920  $\pm$ 0.00006 &  0.00781 $\pm$ 0.00007 &  1.17 \\
-  0.769 $\pm$ 0.003 & 0.179 $\pm$  0.006 &  70 $\pm$ 3   & 0.02915  $\pm$ 0.00004 &  0.00784 $\pm$ 0.00005 &  1.59 \\
- 0.979  $\pm$ 0.003 & 0.196 $\pm$  0.006 &  63 $\pm$ 2   & 0.02923  $\pm$ 0.00005 &  0.00773 $\pm$ 0.00005 &  1.85  \\
- 1.357  $\pm$ 0.005 & 0.198 $\pm$  0.007 &  61 $\pm$ 2   & 0.02939  $\pm$ 0.00005 &  0.00777 $\pm$ 0.00006 &  1.68 \\
- 2.014 $\pm$  0.008 & 0.197 $\pm$  0.007 &  61 $\pm$ 2   & 0.02935  $\pm$ 0.00006 &  0.00776 $\pm$ 0.00007 &  1.55
+$\mu$  &  $w$ &  $\alpha$ &  $Q$ &  $\sigma$ \\[0.6ex] \hline\hline % & $\chi^2$/NDOF\\[0.6ex] \hline\hline
+  0.544 $\pm$ 0.003 & 0.170 $\pm$  0.010 &  86 $\pm$ 10 & 0.02917  $\pm$ 0.00006 &  0.00789 $\pm$ 0.00008 \\ %& 1.52  \\
+  0.632 $\pm$ 0.003 & 0.181 $\pm$  0.008 &  71 $\pm$ 4   & 0.02920  $\pm$ 0.00006 &  0.00781 $\pm$ 0.00007 \\ %&  1.17 \\
+  0.769 $\pm$ 0.003 & 0.179 $\pm$  0.006 &  70 $\pm$ 3   & 0.02915  $\pm$ 0.00004 &  0.00784 $\pm$ 0.00005 \\ %&  1.59 \\
+ 0.979  $\pm$ 0.003 & 0.196 $\pm$  0.006 &  63 $\pm$ 2   & 0.02923  $\pm$ 0.00005 &  0.00773 $\pm$ 0.00005 \\ %&  1.85  \\
+ 1.357  $\pm$ 0.005 & 0.198 $\pm$  0.007 &  61 $\pm$ 2   & 0.02939  $\pm$ 0.00005 &  0.00777 $\pm$ 0.00006 \\ %&  1.68 \\
+ 2.014 $\pm$  0.008 & 0.197 $\pm$  0.007 &  61 $\pm$ 2   & 0.02935  $\pm$ 0.00006 &  0.00776 $\pm$ 0.00007 %&  1.55
 \\[0.6ex] \hline\hline
 \end{tabular}
 \caption{Summary of the R7081 PM calibration results.}
 \label{tab:money}
-\end{sidewaystable}
+\end{table}
 
+Indeed, in table~\ref{tab:money} one can see that as $\mu$ becomes larger $w$, $\alpha$, $Q$ and $\sigma$ remain quite stable. % and within errors. 
+A few further comments should be made. 
+First, $Q$ and $\sigma$ can be obtained with much better accuracy than $w$ and $\alpha$. 
+This is the case because the contribution of misamplified PEs is mainly constrained from the valley between the pedestal and the first PE peak. 
+It appears that the minimizer has more difficulty to identify $w$ and $\alpha$ in this narrow region. 
+Nonetheless, consistent results can be obtained. 
+
+Second, it is clear that correlations exist between the various parameters of $S(x)$. 
+One can see that as $\mu$ increases there is a clear drift in the $w$ and $\alpha$ parameters. 
+In particular, $w$ increases slightly and at the same time $\alpha$ decreases. 
+Nonetheless, this drift is small in magnitude (almost within errors) and a straightforward calculation of the gain ($Q_s$), using eq.~\eqref{eq:laestim}, gives results that are consistent. 
+Figure~\ref{fig:g} shows the one-dimensional distribution of $Q_s$ for those measurements compiled in table~\ref{tab:money}. 
+The relative standard deviation of the distribution in figure~\ref{fig:g} is very small, highlighting that one can determine $Q_s$ with a $\sim$1\% accuracy. 
+These are important results, indicating that the analytical model can be useful in the absolute calibration of PMTs providing precise results in a vast range of PEs.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=10.0cm, height=6.8cm]{figures/Qs.pdf} 
+\caption{Distribution of the gain ($Q_s$) for the measurements compiled in table~\ref{tab:money}. }
+\label{fig:g}
+\end{figure}
+
+\subsection{Comparison with the Discrete Fourier Transform approach}
+
+The data set of table~\ref{tab:money} has been analyzed before in ref.~\cite{me2}. 
+For that purpose, a numerical method based on the Discrete Fourier Transform (DFT) was employed~\cite{me}. 
+In this section we present a comparison of the results obtained through analytical model and the DFT methods. 
+ Table~\ref{tab:comp} shows the gain ($Q_s$) obtained through the DFT method and the analytical model. 
+The first row shows the Poisson mean $\mu$ extracted by the fitter for reference purposes. 
+One can observe that as $\mu$ increases the gain remains quite stable and the results between the DFT and the analytical model are almost identical. 
+We should also note that a drift in the gain is observed (owing to the correlations highlighted in previous section) but this is too small in magnitude.   
+
+\begin{table}[t!]
+\centering
+\begin{tabular}{| c  || c | c |}
+\hline
+$\mu$                      & $Q_s$, DFT method  	       & $Q_s$, analytical model           \\[0.6ex] \hline\hline
+0.544 $\pm$ 0.003  & 0.02620					       & 0.02619 						     				\\
+0.632 $\pm$ 0.003  & 0.02646					       & 0.02645					  	    				\\
+0.769 $\pm$ 0.003  & 0.02649					       & 0.02648					  	    				\\
+0.979 $\pm$ 0.003  & 0.02660					       & 0.02659					    	    				\\
+1.357 $\pm$ 0.005  & 0.02681					       & 0.02681					  	    				\\
+2.014 $\pm$ 0.008  & 0.02682					       & 0.02682				  			
+\\[0.6ex] \hline\hline
+\end{tabular}
+\caption{Comparison between the analytical model and DFT methods.}
+\label{tab:comp}
+\end{table}
 
 \section{Outlook}
 \label{sec:outro}
