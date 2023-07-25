@@ -311,11 +311,11 @@ e^{\omega^2 -\psi^2 } \left( \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}
 \nonumber
 \end{align} 
 where $M(a,b,z)$ and $U(a,b,z)$ are the \emph{confluent hypergeometric functions} of the first and second kind respectively~\cite{error}. 
-The derivation can be found in the appendix~\ref{app:Imn}. 
+The derivation can be found in the~\ref{app:Imn}. 
 The variables $\omega$ and $\psi$ are given by the relations:
 \begin{align}
 \psi = & \frac{x-Q_{n-m}}{\sqrt{2}\sigma_{n-m}}, \\
-\omega = & \frac{x-Q_{n-m} -\lambda\sigma^2_{n-m}}{\sqrt{2}\sigma_{n-m}}.
+\omega = & \frac{x-Q_{n-m} -\alpha\sigma^2_{n-m}}{\sqrt{2}\sigma_{n-m}}.
 \end{align}  
 %and
 %\begin{align}
@@ -378,7 +378,8 @@ Finally, $w$ was first set to 0.2 and limited between 0.0 and 0.6 (since for eve
 Figure~\ref{fig:spes} shows a few examples of distributions fitted with the analytical model. 
 The black dots show the generated data and the azure line shows the best fit. 
 One can see that in both cases the fitted line follows closely the data and the $\chi^2$ over the number of degrees of freedom (NDOF) was always close to one. 
-We also note that the software used for these studies exists in a public repository~\cite{git}. 
+We also note that the software used for these studies exists in a public repository~\cite{git}\footnote{%
+A somewhat simpler and more straightforward example based solely on ROOT~\cite{root} has been committed in https://github.com/lkalousis/SimpleExample}. 
 
 Additionally, sets of one hundred toy data were generated for different values of $\mu$ inside the 0.5 -- 5.0 range. 
 For each set of one hundred toys, the distribution of the relative deviation from the true gain ($Q_s$):
@@ -432,7 +433,7 @@ The results of the analysis are shown in table~\ref{tab:money}.
 As the same PMT is used, the fit should output compatible values for all the parameters of $S(x)$ regardless of $\mu$. 
 The pedestal might drift or change, depending on the stability of the setup, but the SPE response should stay the same. 
 
-\begin{table}[h!]
+\begin{table}[t!]
 \footnotesize
 \centering
 \begin{tabular}{| c  || c | c | c | c |}
@@ -613,7 +614,7 @@ I = \ & \sigma \int^{+\infty}_{ -\frac{Q}{\sigma}  }  e^{-\frac{u^2}{2} - \frac{
   \text{erfc} 
   \left(    \frac{ Q_0\sigma^2 -Q\sigma_0^2 -x \sigma^2  }{\sqrt{2} \sigma_0\sigma\sqrt{\sigma_0^2 + \sigma^2} }         \right). 
 \end{align}
-Again we made use of the integral of appendix~\ref{app:int}. 
+Again we made use of the integral of~\ref{app:int}. 
 Plugging $I$ into the initial equation for $(g*B)(x)$ we are left with the solution: 
 \begin{align}
 (g*B)(x) = \frac{1}{2} \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma^2 +\sigma_0^2}}  \frac{1}{g_N} \ e^{ -\frac{(x-Q_0-Q)^2}{2( \sigma_0^2 + \sigma^2 )}} 
@@ -644,7 +645,7 @@ h_{m,n}(x) = & \frac{ \alpha^{m}}{(m-1)!} \frac{1}{\sqrt{2\pi}\sigma_{n-m}} \int
 with 
 \begin{align}
 \psi = & \frac{x-Q_{n-m}}{\sqrt{2}\sigma_{n-m}}, \\
-\omega = & \frac{x-Q_{n-m} -\lambda\sigma^2_{n-m}}{\sqrt{2}\sigma_{n-m}}.
+\omega = & \frac{x-Q_{n-m} -\alpha\sigma^2_{n-m}}{\sqrt{2}\sigma_{n-m}}.
 \end{align}  
 The integral:
 \begin{align}
@@ -745,6 +746,9 @@ We note that a similar  asymptotic relation for $U(a,b,z)$ can be written for $\
 \bibitem{me2} L. N. Kalousis, \emph{Calibration of photomultiplier tubes}, \emph{JINST} {\bf 18} (2023) P07016.
 
 \bibitem{git} https://github.com/lkalousis/PMTCalib
+
+\bibitem{root} R. Brun and F. Rademakers, \emph{ROOT - An Object Oriented Data Analysis Framework}, \emph{Proceedings AIHENP'96 Workshop}, Lausanne Switzerland (1996),
+{\emph{Nucl. Instrum. Meth.} {\bf A 389 } (1997) 81-86.} See also http://root.cern.ch/
 
 \bibitem{math} Wolfram Research, Inc. (www.wolfram.com), Mathematica Online, Champaign, IL (2022).
 
