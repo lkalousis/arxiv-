@@ -17,10 +17,10 @@
 %% Template article for Elsevier's document class `elsarticle'
 %% with harvard style bibliographic references
 
-%\documentclass[preprint,12pt]{elsarticle}
+\documentclass[preprint,12pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
- \documentclass[preprint,review,12pt]{elsarticle}
+ %\documentclass[preprint,review,12pt]{elsarticle}
 
 %% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
 %% for a journal layout:
@@ -49,7 +49,7 @@
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers.
 \usepackage{lineno}
-\linenumbers
+%\linenumbers
 
 \journal{Nuclear Instruments and Methods A}
 
@@ -152,7 +152,7 @@ The standard machinery for photomultiplier tube (PMT) calibration has been prese
 Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function that can treat a vast number of PMTs~\cite{dossi}. 
 It was based on a carefully chosen combination of an exponential and a truncated gaussian distribution:
 \begin{align}
-S(x) =    \left( \ w \alpha e^{-\alpha x } + (1-w)\frac{1}{g_N} \frac{1}{\sqrt{2\pi}\sigma} e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ \right) H(x).       \label{eq:S}
+S(x) =    \left( \ w \alpha e^{-\alpha x } + \frac{(1-w)}{g_N} \frac{1}{\sqrt{2\pi}\sigma} e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ \right) H(x).       \label{eq:S}
 \end{align}
 The mathematical formulae involved in the Dossi model are rather complicated and an analytical solution has eluded experimental physicists. 
 Up to now, two main approaches are available for the deduction of the charge response function $S_R(x)$.
@@ -183,7 +183,7 @@ We close this publication with some general remarks concerning further uses of t
 \label{sec:mod}
 %
 
-\subsection{General form of $S^{(n)}_R(x)$ }
+\subsection{General form of   $S^{(n)}_R(x)$ }
 %
 
 The charge response of a PMT, when illuminated with light pulses of constant number of photons, is dictated by the function $S_R(x)$:
@@ -258,7 +258,7 @@ The convolution between $f(x)$ and $B(x)$ is given by the equation:
 where erfc is the complementary error function~\cite{error}.
 On the other hand, $(g*B)(x)$ equals to:
 \begin{align}
-(g*B)(x)  = \ \frac{1}{2} \frac{1}{g_N} \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma_0^2 + \sigma^2}} \ e^{ -\frac{ (x-Q_0-Q)^2 }{2(\sigma_0^2 + \sigma^2)}} 
+(g*B)(x)  = \ \frac{1}{2}  \frac{1}{g_N}  \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma_0^2 + \sigma^2}}   \ e^{ -\frac{ (x-Q_0-Q)^2 }{2(\sigma_0^2 + \sigma^2)}} 
 \ \text{erfc}\left(  \frac{ Q_0\sigma^2 -Q\sigma_0^2 -x \sigma^2  }{\sqrt{2} \sigma_0\sigma\sqrt{\sigma_0^2 + \sigma^2} }   \right).
 \end{align}  
 The proof of both these formulae is challenging and interesting in its own right and it is presented in the \ref{app:sr1} with great care. 
@@ -279,8 +279,8 @@ G_n(x)  = \ \frac{1}{\sqrt{2\pi} \sigma_n } \ e^{ -\frac{ (x-Q_n)^2 }{2\sigma_n^
 \end{align}   
 where
 \begin{align}
-Q_n  = Q_0 + n Q_g, \\
-\sigma_n^2 = \sigma_0^2 + n \sigma_g^2.  
+Q_n  & = Q_0 + n Q_g, \\
+\sigma_n^2 & = \sigma_0^2 + n \sigma_g^2.  
 \end{align}   
 Since several convolutions are involved, the truncation of $g(x)$ at negative values of charge should have little impact on the final result.  
 $Q_g$ and $\sigma_g$ are the mean value and standard deviation of $g(x)$ and their exact formulae can be found in ref.~\cite{me2}.
@@ -304,7 +304,7 @@ The expression for $I_{n,m}$ turns out to be:
 I_{m,n} = 
 \begin{cases}
 2\sqrt{\pi}   e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|}, \ \omega>0 \ \text{and} \  \omega^2 \gg 0\\
-e^{\omega^2 -\psi^2 } \left( \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  
+e^{\omega^2 -\psi^2 } \left( \Gamma\left( \frac{m}{2} \right) M\left(\frac{1-m}{2}, \frac{1}{2}, -\omega^2 \right)  
 + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)       \right), \ \omega > 0  \\
 \frac{ e^{ -\psi^2 } }{\sqrt{\pi}}   \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), \ \omega<0
 \end{cases}
@@ -349,8 +349,8 @@ The total charge was calculated by summing the individual charges that each PE d
 \begin{figure}[!t]
 \centering
 %\begin{tabular}{c c}
-\includegraphics[width=11.0cm, height=7.25cm]{figures/mc-fit-2.pdf} \\
-\includegraphics[width=11.0cm, height=7.25cm]{figures/mc-fit-3.pdf} \\
+\includegraphics[width=11.5cm, height=7.5cm]{figures/mc-fit-2.pdf} \\
+\includegraphics[width=11.5cm, height=7.5cm]{figures/mc-fit-3.pdf} \\
 %\end{tabular} \\[1.5ex]
 %\includegraphics[width=10.0cm, height=6.0cm]{figures/mc-fit-3.pdf} 
 \caption{ A few fits obtained with the analytical model. 
@@ -397,7 +397,7 @@ Figure~\ref{fig:dev} shows the results of this exercise.
 The $x$ axis shows $\mu$ and the $y$ axis shows the mean value of the $\Delta Q_s$ distribution. 
 Furthermore, to understand the effect of the truncation of the gaussian part of SPE,  data sets with different $\sigma/Q$ were analyzed. 
 The results with $\sigma/Q$= 25 \% (black), 35 \% (green) and 45 \% (red) are shown in figure~\ref{fig:dev}. 
-One can see that the inside the $\sigma/Q$ = 25 -- 35 \% window the model extracts the gain with excellent accuracy. 
+One can see that inside the $\sigma/Q$ = 25 -- 35 \% window the model extracts the gain with excellent accuracy. 
 At the high value\footnote{And unrealistic for modern PMTs.}  of $\sigma/Q$ = 45 \% there is a deviation from the true gain of $\sim$ 1.0 \% for $\mu = 5$.
 
 \begin{figure}[!t]
@@ -447,7 +447,7 @@ $\mu$  &  $w$ &  $\alpha$ &  $Q$ &  $\sigma$ \\[0.6ex] \hline\hline % & $\chi^2$
  2.014 $\pm$  0.008 & 0.197 $\pm$  0.007 &  61 $\pm$ 2   & 0.02935  $\pm$ 0.00006 &  0.00776 $\pm$ 0.00007 %&  1.55
 \\[0.6ex] \hline\hline
 \end{tabular}
-\caption{Summary of the R7081 PM calibration results.}
+\caption{Summary of the R7081 PMT calibration results.}
 \label{tab:money}
 \end{table}
 
@@ -583,7 +583,7 @@ the expression becomes:
 \begin{align}
 (f*B)(x) = & \frac{\alpha }{\sqrt{\pi}}   \int^{+\infty}_{ \frac{Q_0-x}{\sqrt{2}\sigma_0}   } e^{ -u^2 -\alpha( \sqrt{2}\sigma_0 u + x - Q_0 ) } dt \nonumber \\
             = & \frac{\alpha }{\sqrt{\pi}} e^{-\alpha(x-Q_0)} \int^{+\infty}_{ \frac{Q_0-x}{\sqrt{2}\sigma_0}   } e^{ -u^2 - \sqrt{2}\alpha\sigma_0 u  } dt  \nonumber \\
-            = & \frac{\alpha }{2} e^{\frac{\alpha^2\sigma_0^2}{2}} e^{-\alpha(x-Q)} \ \text{erfc}\left(    \frac{Q_0 + \alpha\sigma_0^2 -x }{\sqrt{2}\sigma_0} \right).
+            = & \frac{\alpha }{2} e^{\frac{\alpha^2\sigma_0^2}{2}} e^{-\alpha(x-Q_0)} \ \text{erfc}\left(    \frac{Q_0 + \alpha\sigma_0^2 -x }{\sqrt{2}\sigma_0} \right).
 \end{align}
 In the last line we employed the integral identity~\eqref{eq:intg}. 
 
@@ -617,7 +617,7 @@ I = \ & \sigma \int^{+\infty}_{ -\frac{Q}{\sigma}  }  e^{-\frac{u^2}{2} - \frac{
 Again we made use of the integral of~\ref{app:int}. 
 Plugging $I$ into the initial equation for $(g*B)(x)$ we are left with the solution: 
 \begin{align}
-(g*B)(x) = \frac{1}{2} \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma^2 +\sigma_0^2}}  \frac{1}{g_N} \ e^{ -\frac{(x-Q_0-Q)^2}{2( \sigma_0^2 + \sigma^2 )}} 
+(g*B)(x) = \frac{1}{2} \frac{1}{g_N}  \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma_0^2 +\sigma^2}}  \ e^{ -\frac{(x-Q_0-Q)^2}{2( \sigma_0^2 + \sigma^2 )}} 
 \text{erfc} 
   \left(    \frac{ Q_0\sigma^2 -Q\sigma_0^2 -x \sigma^2  }{\sqrt{2} \sigma_0\sigma\sqrt{\sigma_0^2 + \sigma^2} }         \right). 
 \end{align}
@@ -698,7 +698,7 @@ M(a,b,z) = e^z M(b-a,b,-z)
 \end{align}
 and $I_{m,n}$ becomes:
 \begin{align}
-I_{m,n} = e^{\omega^2 -\psi^2 } \left(  \Gamma\left( \frac{m}{2} \right) M\left(-\frac{m-1}{2}, \frac{1}{2}, -\omega^2 \right)  \nonumber \right. \\ \left. + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)     \right).
+I_{m,n} = e^{\omega^2 -\psi^2 } \left(  \Gamma\left( \frac{m}{2} \right) M\left(\frac{1-m}{2}, \frac{1}{2}, -\omega^2 \right)  \nonumber \right. \\ \left. + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)     \right).
 \end{align}
 
 \subsection*{$I_{m,n}$ case III: $ \omega <0$}
