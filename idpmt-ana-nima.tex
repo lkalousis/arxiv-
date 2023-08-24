@@ -293,7 +293,7 @@ The major difficulty we faced in trying to solve the analytical model, lied in t
 As the reader can verify the final solution involves the use of special functions and it is far from trivial. 
 The answer is:
 \begin{align}
-h_{m,n}(x) =  \frac{\alpha (\alpha\sqrt{2} \sigma_{n-m})^{m-1}}{(m-1)!} \frac{1}{2\sqrt{\pi}} \  I_{m,n}.
+h_{m,n}(x) =  \frac{\alpha (\alpha\sqrt{2} \sigma_{n-m})^{m-1}}{(m-1)!}  I_{m,n}.
 \end{align}  
 %where 
 %\begin{align}
@@ -303,10 +303,10 @@ The expression for $I_{n,m}$ turns out to be:
 \begin{align}
 I_{m,n} = 
 \begin{cases}
-2\sqrt{\pi}   e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|}, \ \omega>0 \ \text{and} \  \omega^2 \gg 0\\
-e^{\omega^2 -\psi^2 } \left( \Gamma\left( \frac{m}{2} \right) M\left(\frac{1-m}{2}, \frac{1}{2}, -\omega^2 \right)  
+  e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|}, \ \omega>0 \ \text{and} \  \omega^2 \gg 0\\
+\frac{ e^{\omega^2 -\psi^2 } }{ 2\sqrt{\pi} }\left( \Gamma\left( \frac{m}{2} \right) M\left(\frac{1-m}{2}, \frac{1}{2}, -\omega^2 \right)  
 + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)       \right), \ \omega > 0  \\
-\frac{ e^{ -\psi^2 } }{\sqrt{\pi}}   \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), \ \omega<0
+\frac{ e^{ -\psi^2 } }{2\pi}   \Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right), \ \omega<0
 \end{cases}
 \nonumber
 \end{align} 
@@ -378,8 +378,8 @@ Finally, $w$ was first set to 0.2 and limited between 0.0 and 0.6 (since for eve
 Figure~\ref{fig:spes} shows a few examples of distributions fitted with the analytical model. 
 The black dots show the generated data and the azure line shows the best fit. 
 One can see that in both cases the fitted line follows closely the data and the $\chi^2$ over the number of degrees of freedom (NDOF) was always close to one. 
-We also note that the software used for these studies exists in a public repository~\cite{git}\footnote{%
-A somewhat simpler and more straightforward example based solely on ROOT~\cite{root} has been committed in https://github.com/lkalousis/SimpleExample}. 
+We also note that the software used for these studies exists in a public repository~\cite{git}.\footnote{%
+A somewhat simpler and more straightforward example based solely on ROOT~\cite{root} has been committed in https://github.com/lkalousis/SimpleExample}
 
 Additionally, sets of one hundred toy data were generated for different values of $\mu$ inside the 0.5 -- 5.0 range. 
 For each set of one hundred toys, the distribution of the relative deviation from the true gain ($Q_s$):
@@ -398,7 +398,7 @@ The $x$ axis shows $\mu$ and the $y$ axis shows the mean value of the $\Delta Q_
 Furthermore, to understand the effect of the truncation of the gaussian part of SPE,  data sets with different $\sigma/Q$ were analyzed. 
 The results with $\sigma/Q$= 25 \% (black), 35 \% (green) and 45 \% (red) are shown in figure~\ref{fig:dev}. 
 One can see that inside the $\sigma/Q$ = 25 -- 35 \% window the model extracts the gain with excellent accuracy. 
-At the high value\footnote{And unrealistic for modern PMTs.}  of $\sigma/Q$ = 45 \% there is a deviation from the true gain of $\sim$ 1.0 \% for $\mu = 5$.
+At the rather high value\footnote{And unrealistic for modern PMTs.} of $\sigma/Q$ = 45~\% there is a deviation from the true gain of $\sim$ 1.0 \% for $\mu = 5$.
 
 \begin{figure}[!t]
 \centering
@@ -669,11 +669,11 @@ I^\prime = \frac{1}{2} e^{-\omega^2}
 \end{align}
 Finally, and using the formulae for $I$ and $I^\prime$, $h_{m,n}(x)$ takes the form:
 \begin{align}
-h_{m,n}(x) =  \frac{ \alpha (\alpha\sqrt{2} \sigma_{n-m})^{m-1}}{(m-1)!} \frac{1}{2\sqrt{\pi}} \  I_{m,n}
+h_{m,n}(x) =  \frac{ \alpha (\alpha\sqrt{2} \sigma_{n-m})^{m-1}}{(m-1)!}  I_{m,n}
 \end{align} 
 where $I_{m,n}$  is given by the equation:
 \begin{align}
-I_{m,n} = e^{-\psi^2} \left( \Gamma\left( \frac{m}{2} \right) M\left( \frac{m}{2}, \frac{1}{2}, \omega^2 \right)  + 2\omega \Gamma\left( \frac{m+1}{2} \right) M\left(\frac{m+1}{2}, \frac{3}{2}, \omega^2 \right) \right).  
+I_{m,n} = \frac{ e^{-\psi^2} }{ 2\sqrt{\pi} }\left( \Gamma\left( \frac{m}{2} \right) M\left( \frac{m}{2}, \frac{1}{2}, \omega^2 \right)  + 2\omega \Gamma\left( \frac{m+1}{2} \right) M\left(\frac{m+1}{2}, \frac{3}{2}, \omega^2 \right) \right).  
 \end{align}
 
 \subsection*{$I_{m,n}$ case I: $\omega> 0$ and $\omega^2 \gg 0$ }
@@ -686,7 +686,7 @@ M(a,b,z) = \frac{\Gamma (b)}{\Gamma(a)} \  e^z z^{a-b}.
 \end{align}
 We then have for $I_{m,n}$:
 \begin{align}
- I_{m,n} = 2\sqrt{\pi}   e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|}.
+ I_{m,n} = e^{\omega^2 - \psi^2 + (m-1) \ell n |\omega|}.
 \end{align}
 
 \subsection*{$I_{m,n}$ case II: $\omega >0$}
@@ -698,7 +698,8 @@ M(a,b,z) = e^z M(b-a,b,-z)
 \end{align}
 and $I_{m,n}$ becomes:
 \begin{align}
-I_{m,n} = e^{\omega^2 -\psi^2 } \left(  \Gamma\left( \frac{m}{2} \right) M\left(\frac{1-m}{2}, \frac{1}{2}, -\omega^2 \right)  \nonumber \right. \\ \left. + 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)     \right).
+I_{m,n} = \frac{ e^{\omega^2 -\psi^2 } }{2\sqrt{\pi}} \left(  \Gamma\left( \frac{m}{2} \right) M\left(\frac{1-m}{2}, \frac{1}{2}, -\omega^2 \right)  \nonumber \right. \\ \left. 
++ 2|\omega| \Gamma\left( \frac{m+1}{2} \right) M\left(1-\frac{m}{2}, \frac{3}{2}, -\omega^2 \right)     \right).
 \end{align}
 
 \subsection*{$I_{m,n}$ case III: $ \omega <0$}
@@ -710,7 +711,7 @@ U(a,b,z) = \frac{\Gamma(1-b) }{\Gamma(a+1-b)}M(a,b,z) + \frac{\Gamma(b-1) }{\Gam
 \end{align}
 and write $I_{m,n}$ as:
 \begin{align}
-I_{m,n} = \frac{ e^{ -\psi^2 } }{ \sqrt{\pi} }\Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right). 
+I_{m,n} = \frac{ e^{ -\psi^2 } }{ 2\pi }\Gamma\left( \frac{m}{2} \right)   \Gamma\left( \frac{m+1}{2} \right) U\left( \frac{m}{2}, \frac{1}{2}, \omega^2  \right). 
 \end{align}
 We note that a similar  asymptotic relation for $U(a,b,z)$ can be written for $\omega<0$ and $\omega^2 \gg 0$. 
 
@@ -727,6 +728,12 @@ We note that a similar  asymptotic relation for $U(a,b,z)$ can be written for $\
 
 %% else use the following coding to input the bibitems directly in the
 %% TeX file.
+
+\section*{Acknowledgements}
+
+The data used in this publication were taken in the laboratory of M. Dracos and we wish to thank him for allowing us to use them for the purposes of this communication. 
+We also wish to thank C. Bobeth for encouraging us to continue and complete this study.
+
 
 \begin{thebibliography}{00}
 
