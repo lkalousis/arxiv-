@@ -114,8 +114,8 @@
 
 The purpose of the present article is to offer an analytical model that can be used for the calibration of photomultiplier tubes (PMTs). 
 The derivation of the mathematical formulae is discussed extensively and we apply this machinery to a real problem; the gain determination of the R7081 Hamamatsu PMT. 
- We hope that our work can provide a third, powerful alternative to the task of gain determination. 
- We also believe that the techniques explained in this article can be applied to other problems in PMT calibration. % and monitoring. 
+We hope that our work can provide a third, powerful alternative to the task of gain determination.  
+We also believe that the techniques explained in this article can be applied to other problems in PMT calibration. % and monitoring. 
  
 \end{abstract}
 
@@ -149,11 +149,21 @@ Photomultiplier tube (PMT), Calibration, PMT charge response model, PMT gain, An
 \label{sec:intro}
 
 The standard machinery for photomultiplier tube (PMT) calibration has been presented in an influential paper written by E. H. Bellamy and collaborators~\cite{bellamy}. 
-Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function that can treat a vast number of PMTs~\cite{dossi}. 
+Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function $S(x)$ that can treat a vast number of PMTs~\cite{dossi}. 
 It was based on a carefully chosen combination of an exponential and a truncated gaussian distribution:
 \begin{align}
 S(x) =    \left( \ w \alpha e^{-\alpha x } + \frac{(1-w)}{g_N} \frac{1}{\sqrt{2\pi}\sigma} e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ \right) H(x).       \label{eq:S}
 \end{align}
+Note that photoelectrons that backscatter and miss the first amplification stage are modeled in $S(x)$ through the exponential term. 
+The slope of the exponential is $\alpha$ and the $w$ pre-factor parametrizes the probability for this process to happen. 
+A better discussion of this, with further experimental tests, can be found in ref.~\cite{dossi}. 
+$H(x)$ is the Heaviside step function and $Q$ and $\sigma$ are the parameters of the truncated gaussian that models the amplification of the full dynode chain.  
+The $g_N$ factor ensures that the truncated gaussian is properly normalized and equals to:
+\begin{align}
+g_N = \frac{1}{2} \textrm{erfc} \left( - \frac{Q}{\sqrt{2}\sigma} \right), 
+\end{align}
+where erfc($z$) is the complementary error function~\cite{error}. 
+
 The mathematical formulae involved in the Dossi model are rather complicated and an analytical solution has eluded experimental physicists. 
 Up to now, two main approaches are available for the deduction of the charge response function $S_R(x)$.
 \begin{enumerate}[i.]
@@ -186,7 +196,7 @@ We close this publication with some general remarks concerning further uses of t
 \subsection{General form of   $S^{(n)}_R(x)$ }
 %
 
-The charge response of a PMT, when illuminated with light pulses of constant number of photons, is dictated by the function $S_R(x)$:
+The behavior of a PMT, when illuminated with light pulses of constant number of photons, is dictated by the charge response function $S_R(x)$:
 \begin{align}
 S_R(x) = \sum_{n=0}^{+\infty} P(n;\mu) S^{(n)}_R(x), \label{eq:SR}
 \end{align}
@@ -209,8 +219,8 @@ and
 \begin{align}
 g(x) = \frac{1}{g_N} \frac{1}{\sqrt{2\pi}\sigma} \ e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ H(x). 
 \end{align}
-Note that photoelectrons that backscatter and miss the first amplification stage are modeled in the SPE function through the exponential $f(x)$ term. 
-The $w$ pre-factor parametrizes the probability for this process to occur. A better discussion of this, with further experimental tests, can be found in ref.~\cite{dossi}. 
+%Note that photoelectrons that backscatter and miss the first amplification stage are modeled in the SPE function through the exponential $f(x)$ term. 
+%The $w$ pre-factor parametrizes the probability for this process to occur. A better discussion of this, with further experimental tests, can be found in ref.~\cite{dossi}. 
 The principal $S^{(n)}_R(x)$ functions are equal to: %can then be written as:
 \begin{align}
 S^{(n)}_R(x) & = \sum_{m=0}^{n}  \frac{n!}{m!(n-m)!} \ w^m (1-w)^{n-m} (f_m*g_{n-m} *B )(x)\nonumber \\
@@ -245,7 +255,7 @@ S^{(0)}_R(x)  = \ & B(x) \nonumber \\
 \end{align}
 We remind the reader that $f_0(x)=g_0(x)=\delta (x)$. 
 This is the well-known pedestal distribution and $Q_0$ and $\sigma_0$ are the mean value and standard deviation of $B(x)$ respectively. 
-On the other hand, the $n=1$ term recieves two contributions:
+On the other hand, the $n=1$ term receives two contributions:
 \begin{align}
 S^{(1)}_R(x)  = w (f*B)(x) + (1-w)(g*B)(x). 
 \end{align}                     
@@ -253,9 +263,9 @@ We begin with the formula of $(f*B)(x)$ and then write down $(g*B)(x)$.
 
 The convolution between $f(x)$ and $B(x)$ is given by the equation:
 \begin{align}
-(f*B)(x)  = \ \frac{\alpha}{2} e^{\frac{\alpha^2\sigma_0^2}{2}} e^{-\alpha (x-Q_0)} \ \text{erfc}\left( \frac{Q_0 + \alpha\sigma_0^2 - x }{\sqrt{2}\sigma_0} \right),
+(f*B)(x)  = \ \frac{\alpha}{2} e^{\frac{\alpha^2\sigma_0^2}{2}} e^{-\alpha (x-Q_0)} \ \text{erfc}\left( \frac{Q_0 + \alpha\sigma_0^2 - x }{\sqrt{2}\sigma_0} \right).
 \end{align}  
-where erfc($x$) is the complementary error function~\cite{error}.
+%where erfc($x$) is the complementary error function~\cite{error}.
 On the other hand, $(g*B)(x)$ equals to:
 \begin{align}
 (g*B)(x)  = \ \frac{1}{2}  \frac{1}{g_N}  \frac{1}{\sqrt{2\pi}} \frac{1}{\sqrt{\sigma_0^2 + \sigma^2}}   \ e^{ -\frac{ (x-Q_0-Q)^2 }{2(\sigma_0^2 + \sigma^2)}} 
@@ -289,7 +299,7 @@ $Q_g$ and $\sigma_g$ are the mean value and standard deviation of $g(x)$ and the
 \subsection{$h_{m,n}(x)$ in terms of hypergeometric functions}
 %
 
-The major difficulty we faced in trying to solve the analytical model, lied in the calculation of $h_{m,n}(x)$ when $n\geq2$. 
+The major difficulty we faced in trying to solve the analytical model, was in the calculation of $h_{m,n}(x)$ when $n\geq2$. 
 As the reader can verify the final solution involves the use of special functions and it is far from trivial. 
 The answer is:
 \begin{align}
@@ -349,12 +359,13 @@ The total charge was calculated by summing the individual charges that each PE d
 \begin{figure}[!t]
 \centering
 %\begin{tabular}{c c}
-\includegraphics[width=11.5cm, height=7.5cm]{figures/mc-fit-2.pdf} \\
-\includegraphics[width=11.5cm, height=7.5cm]{figures/mc-fit-3.pdf} \\
+\includegraphics[width=12.0cm, height=8.20cm]{figures/mc-fit-2.pdf} \\
+\includegraphics[width=12.0cm, height=8.20cm]{figures/mc-fit-3.pdf} \\
 %\end{tabular} \\[1.5ex]
 %\includegraphics[width=10.0cm, height=6.0cm]{figures/mc-fit-3.pdf} 
 \caption{ A few fits obtained with the analytical model. 
-Black dots show the generated data and the azure line shows the best fit. The dashed lines show the contributions from the several PE peaks. }
+Black dots show the generated data and the azure line shows the best fit. The dashed lines show the contributions from the several PE peaks. 
+The spectra generated with true values of $\mu$ equal to two (top) and three (bottom) are shown. }
 \label{fig:spes}
 \end{figure}
 Examples of such distributions are shown in figure~\ref{fig:spes}. 
@@ -368,6 +379,7 @@ An estimate of the mean number of PEs was given by the formula:
 \end{align}
 and was input as an initial value to aid the minimizer. 
 $N_{tot}$ is the total number of entries and eq.~\eqref{eq:muestim} is obtained from $P(0; \mu ) = e^{-\mu}$. 
+
 The initial value of $Q$ was set to: 
 \begin{align}
 \frac{ \bar x - Q_0 }{\mu}
@@ -389,7 +401,7 @@ For each set of one hundred toys, the distribution of the relative deviation fro
 \end{align}
 was plotted. We note that:
 \begin{align}
- Q_s = \frac{w}{\alpha} + (1-w)Q_g
+ Q_s = \frac{w}{\alpha} + (1-w)Q_g,
 \label{eq:laestim}
 \end{align}
 where $Q_g$ is the mean value of $g(x)$\footnote{The formulae of $Q_s$ and $Q_g$ together with their derivation can be found in ref.~\cite{me2}. } and $Q_s^\prime$ is the gain parameter returned by the minimizer.
@@ -418,15 +430,26 @@ The details of the experimental setup have been described before in ref.~\cite{m
 In a nutshell, the R7081 PMT was placed inside a dark, light-tight box. Light pulses were created by a light emitting diode (LED) connected to a fast pulse generator. 
 The photons were carried inside the box through an optical fiber and the signals from the PMT were readout by a LeCroy WavePro 725Zi oscilloscope.   
 The setup triggered on the generator's second, duplicated channel and all signals were recorded. Including those with no photons at all (pedestal). 
+Figure~\ref{fig:setup} shows a simple schematic of the PMT testing apparatus. 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=11.75cm, height=8.0cm]{figures/fit-1-b.pdf} \\[1.5ex]
-\includegraphics[width=11.75cm, height=8.0cm]{figures/fit-3-b.pdf} %\\
+\includegraphics[width=13.2cm, height=10.0cm]{figures/setup.pdf} 
+\caption{Pictorial representation of our PMT testing apparatus.}
+\label{fig:setup}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=11.80cm, height=8.25cm]{figures/fit-1-c.pdf} \\[1.5ex]
+\includegraphics[width=11.80cm, height=8.25cm]{figures/fit-3-c.pdf} %\\
 \caption{A few fits obtained using the analytical model of $S_R(x)$.  The data are shown in the black dots and the best fit curve is shown in azure line. }
 \label{fig:spe}
 \end{figure}
 Figure~\ref{fig:spe} shows  a few fits obtained with the $S_R(x)$ model put forward in this article. 
+Note that the unit of the $x$ axis is nanovolt times second (nVs), which is the unit of charge given by the LeCroy oscilloscope.
+In particular, $Q$ and $\sigma$ are measured in nVs and $\alpha$ in nVs$^{-1}$. 
 The best fit curve (azure line) follows closely the data and the $\chi^2$/NDOF is always close to one. 
 To demonstrate that the fitting model is self-consistent and that extracts the correct $w$, $\alpha$, $Q$ and $\sigma$, several data were taken with varying LED intensity. 
 The results of the analysis are shown in table~\ref{tab:money}. 
@@ -438,7 +461,7 @@ The pedestal might drift or change, depending on the stability of the setup, but
 \centering
 \begin{tabular}{| c  || c | c | c | c |}
 \hline 
-$\mu$  &  $w$ &  $\alpha$ &  $Q$ &  $\sigma$ \\[0.6ex] \hline\hline % & $\chi^2$/NDOF\\[0.6ex] \hline\hline
+$\mu$  &  $w$ &  $\alpha$ (nVs$^{-1}$) &  $Q$ (nVs) &  $\sigma$ (nVs) \\[0.6ex] \hline\hline % & $\chi^2$/NDOF\\[0.6ex] \hline\hline
   0.544 $\pm$ 0.003 & 0.170 $\pm$  0.010 &  86 $\pm$ 10 & 0.02917  $\pm$ 0.00006 &  0.00789 $\pm$ 0.00008 \\ %& 1.52  \\
   0.632 $\pm$ 0.003 & 0.181 $\pm$  0.008 &  71 $\pm$ 4   & 0.02920  $\pm$ 0.00006 &  0.00781 $\pm$ 0.00007 \\ %&  1.17 \\
   0.769 $\pm$ 0.003 & 0.179 $\pm$  0.006 &  70 $\pm$ 3   & 0.02915  $\pm$ 0.00004 &  0.00784 $\pm$ 0.00005 \\ %&  1.59 \\
@@ -468,7 +491,7 @@ These are important results, indicating that the analytical model can be useful 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=10.0cm, height=6.8cm]{figures/Qs.pdf} 
+\includegraphics[width=12.25cm, height=8.5cm]{figures/Qs.pdf} 
 \caption{Distribution of the gain ($Q_s$) for the measurements compiled in table~\ref{tab:money}. }
 \label{fig:g}
 \end{figure}
@@ -481,29 +504,44 @@ In this section we present a comparison of the results obtained through analytic
  Table~\ref{tab:comp} shows the gain ($Q_s$) obtained through the DFT method and the analytical model. 
 The first row shows the Poisson mean $\mu$ extracted by the fitter for reference purposes. 
 One can observe that as $\mu$ increases the gain remains quite stable and the results between the DFT and the analytical model are almost identical. 
-We should also note that a drift in the gain is observed (owing to the correlations highlighted in previous section) but this is too small in magnitude.   
+We should also note that a drift in the gain is observed (owing to the correlations highlighted in previous section) but this is too small in magnitude.
+It is a deviation of $\sim$ 2$\sigma$ and it is well within the measurement errors.    
 
 \begin{table}[t!]
 \centering
 \begin{tabular}{| c  || c | c |}
 \hline
-$\mu$                      & $Q_s$, DFT method  	       & $Q_s$, analytical model           \\[0.6ex] \hline\hline
-0.544 $\pm$ 0.003  & 0.02620					       & 0.02619 						     				\\
-0.632 $\pm$ 0.003  & 0.02646					       & 0.02645					  	    				\\
-0.769 $\pm$ 0.003  & 0.02649					       & 0.02648					  	    				\\
-0.979 $\pm$ 0.003  & 0.02660					       & 0.02659					    	    				\\
-1.357 $\pm$ 0.005  & 0.02681					       & 0.02681					  	    				\\
-2.014 $\pm$ 0.008  & 0.02682					       & 0.02682				  			
+$\mu$                      & $Q_s$, DFT method (nVs)  	       & $Q_s$, analytical model (nVs)           \\[0.6ex] \hline\hline
+0.544 $\pm$ 0.003  & 0.0262 	$\pm$ 0.0003			       	       & 0.0262 	$\pm$ 0.0003					     				\\
+0.632 $\pm$ 0.003  & 0.0265	$\pm$ 0.0003				       & 0.0265	$\pm$ 0.0003				  	    				\\
+0.769 $\pm$ 0.003  & 0.0265	$\pm$ 0.0003				       & 0.0265	$\pm$ 0.0003					  	    				\\
+0.979 $\pm$ 0.003  & 0.0266	$\pm$ 0.0002				       & 0.0266	$\pm$ 0.0002				    	    				\\
+1.357 $\pm$ 0.005  & 0.0268	$\pm$ 0.0003				       & 0.0268    $\pm$ 0.0003						  	    				\\
+2.014 $\pm$ 0.008  & 0.0268	$\pm$ 0.0003				       & 0.0268	$\pm$ 0.0003				  			
 \\[0.6ex] \hline\hline
 \end{tabular}
 \caption{Comparison between the analytical model and DFT methods.}
 \label{tab:comp}
 \end{table}
 
+Furthermore, in ref.~\cite{me2} we have analyzed the same data set using the numerical integration method mentioned in section~\ref{sec:intro}.  
+To simplify the calculations only the first PE peak was worked out numerically and higher peaks were approximated with perfectly symmetric gaussians. 
+It was shown that inside the $\mu$ = 0.5 - 2.0 window the numerical integration gave the same results as the DFT approach. 
+So, we can expect all three techniques to provide the same figures of tables 1 and 2. 
+Additionally, it should be mentioned that the numerical integration gave a slightly worse $\chi^2$/NDOF and took more time to analyze this data set. 
+Calculating more peaks numerical will improve $\chi^2$/NDOF but at the same time will increase the execution time rendering the method almost inapplicable. 
+More details can be found in ref.~\cite{me2}. 
+
+
 \section{Outlook}
 \label{sec:outro}
 %
-In this article we have a have presented an analytical model that can be used for the calibration of PMTs whenever the SPE response can be parameterized by eq.~\eqref{eq:S}.  
+In this article we have presented an analytical model that can be used for the calibration of PMTs whenever the SPE response can be parameterized by eq.~\eqref{eq:S}.  
+Note that the SPE charge amplification of the full dynode chain for the R7081 PMT has a very symmetrical shape and it can be modeled by a truncated gaussian.  
+In several cases, as for instance in the R1408 Hamamatsu PMT, the SPE response has a rather asymmetrical shape and the formulae given in this publication seize  to apply.  %\footnote{%
+It has been argued that this is due to venetian-blind type of the dynode array.   %}  
+In this example a gamma distribution is to be preferred~\cite{me}. 
+
 The various mathematical formulae were derived with great detail and attention was paid to showcase the approximations needed for the final solution. 
 We should emphasize that while the equations might seem, at first glance, both complicated and unnecessarily elaborate, 
 we find that the model is quite simple and that it can be employed with the same efficacy as the already establish approaches. 
@@ -511,7 +549,7 @@ Data from a R7081 PMT were analyzed and the results were in excellent agreement 
 In particular, the gain parameter of the PMT was remarkably stable within the $\mu$~$\sim$~0.5 - 2.0 plateau. 
 The code used for these investigations exists in a public repository~\cite{git}.  
 
-Last, we would like to emphasize that the main thrust of our efforts was directed towards two specific objectives:
+We would like to emphasize that the main thrust of our efforts was directed towards two specific objectives:
 \begin{enumerate}[i.]
 \item First, we wanted to derive all the necessary mathematical formulae in a clear and pedagogical manner that everybody understands and,
 \item Second, we wanted to demonstrate that the model can extract the gain parameter in a rigorous way, similar to those of already established methods. 
@@ -520,6 +558,13 @@ In this respect, we showed that it returns figures consistent with the numerical
 Of course, the procedure outlined in this publication can be used to study further properties of PMTs with gaussian single photoelectron response function. 
 For instance, it could be employed to probe the photoelectron detection efficiency (PDE) of PMTs with characteristics similar to the Hamamatsu R7081. 
 
+Finally, we should also mention that the machinery developed in this article comprises the first analytical solution of the Dossi model. 
+As an example, we can refer to the Darkside paper, ref.~\cite{dark}, where the equations were solved numerically for the first two PE peaks 
+and higher peaks were approximated with symmetric gaussians. 
+This approach is accurate only for small values of $\mu$, where the non-gaussian tails of $S^{(n)}(x)$ can be neglected. 
+In striking contrast, the model of this article can incorporate higher PE corrections, in the software, with only a few lines of code. 
+Additionally, a solution exists in a closed form and a single spectrum can be analyzed in just a few seconds of execution time. 
+We believe that this is an important improvement over the existing approximate methods.  
 
 
 %% The Appendices part is started with the command \appendix;
@@ -746,9 +791,9 @@ We also wish to thank C. Bobeth for encouraging us to continue and complete this
 \bibitem{dossi}  R. Dossi {et al.}, \emph{Methods for precise photoelectron counting with photomultipliers}, 
 \emph{Nucl. Instrum. Meth.} {\bf A 451} (2000) 623-637.
 
-\bibitem{me} L. N. Kalousis {et al.}, \emph{A fast numerical method for photomultiplier calibration}, \emph{JINST} {\bf 15} (2020) P03023.
-
 \bibitem{error} M. Abramowitz and I. A. Stegun, \emph{Handbook of Mathematical Functions: with Formulas, Graphs, and Mathematical Tables}, Dover Publications, 0009-Revised edition (June 1, 1965).  
+
+\bibitem{me} L. N. Kalousis {et al.}, \emph{A fast numerical method for photomultiplier calibration}, \emph{JINST} {\bf 15} (2020) P03023.
 
 \bibitem{me2} L. N. Kalousis, \emph{Calibration of photomultiplier tubes}, \emph{JINST} {\bf 18} (2023) P07016.
 
@@ -759,6 +804,9 @@ We also wish to thank C. Bobeth for encouraging us to continue and complete this
 
 \bibitem{math} Wolfram Research, Inc. (www.wolfram.com), Mathematica Online, Champaign, IL (2022).
 
+\bibitem{dark} T. Alexander {et al.} (DarkSide collaboration), \emph{Light Yield in DarkSide-10: A Prototype Two-Phase Argon TPC for Dark Matter Searches}, 
+
+\emph{Astropart. Phys.} {\bf 49} (2013) 44.
 
 \end{thebibliography}
 \end{document}

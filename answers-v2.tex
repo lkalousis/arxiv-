@@ -1,0 +1,184 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 
+
+%\usepackage{jinstpub} 
+%
+
+\usepackage{enumitem}
+ 
+\usepackage{amssymb}
+\usepackage{amsmath}
+%
+
+\begin{document}
+
+{\bf Answers to referee \#1}
+\\[1ex] 
+
+I would like to thank the referee for his or her nice comments.
+I was flattered to see that, he or she, took the time to read my work carefully and understood the main takeaway messages.  
+My answers below:
+\\[1ex]
+
+C: \emph{ One small remark in this section concerns figure 1: I suppose that the values of mu reported in the figures are the ones from the fit and that the ones set in the toy montecarlo are 2 and 3 respectively; 
+for clarity, this should be explicitly mentioned in the caption of the figure. }
+
+A: Done. The caption of the figure now reads:
+\\[1ex]
+
+A few fits obtained with the analytical model. 
+Black dots show the generated data and the azure line shows the best fit. The dashed lines show the contributions from the several PE peaks. 
+The spectra generated with true values of $\mu$ equal to two (top) and three (bottom) are shown.
+\\[1ex]
+
+C: \emph{In this section I would only suggest the authors to anticipate the unit of the gain and sigma to the caption of table 1 instead of letting the reader dedice them from the X-axis legend of figure 4.}
+
+A: That was an important omission. I have added the following sentences in the text :
+\\[1ex]
+
+Figure~4 shows  a few fits obtained with the $S_R(x)$ model put forward in this article. 
+Note that the unit of the $x$ axis is nanovolt times second (nVs), which is the unit of charge given by the LeCroy oscilloscope.
+In particular, $Q$ and $\sigma$ are measured in nVs and $\alpha$ in nVs$^{-1}$.
+\\[1ex]
+
+I  added  also the units of $\alpha$, $Q$, $\sigma$ and $Q_s$ in tables 1 and 2. 
+\\[1ex]
+
+C: \emph{ I would also suggest to mention the fitting error on the gain in the caption of Table 2: 
+this will give a more quantitative argument to appreciate the similarity of the analytical and DFT results and the negligible drift effect on the gain. }
+
+A: Good point. The errors on the gain have been calculated and added in table 2.
+One sees that the deviation is of the level of 2$\sigma$; well within the errors. 
+A comment has been added:
+\\[1ex]
+
+We should also note that a drift in the gain is observed (owing to the correlations highlighted in previous section) but this is too small in magnitude.
+It is a deviation of $\sim$ 2$\sigma$ and it is well within the measurement errors.    
+\\[1ex]
+
+C: \emph{ In the first sentence, it is mentioned that the proposed analytical method can be applied to PMT's "whenever the SPE response can be parameterized by eq. (4)". 
+Can the autohrs be more explicit on the properties of the PMT's where this method can be used? 
+Or in other words, can one have an expample of PMT's whre this method woudld fail and why? }
+
+A: I have added the following lines in the text:
+\\[1ex]
+
+In this article we have presented an analytical model that can be used for the calibration of PMTs whenever the SPE response can be parameterized by eq.~5.  
+Note that the SPE charge amplification of the full dynode chain for the R7081 PMT has a very symmetrical shape and it can be modeled by a truncated gaussian.  
+In several cases, as for instance in the R1408 Hamamatsu PMT, the SPE response has a rather asymmetrical shape and the formulae given in this publication seize  to apply. %\footnote{%
+It has been argued that this is due to venetian-blind type of the dynode array. %}
+In this example a gamma distribution is to be preferred~[4]. 
+\\[1ex]
+
+
+\vspace{1cm}
+{\bf Answers to referee \#2}
+\\[1ex]
+
+I would like to thank the referee for his/her valid comments. 
+I have tried to address them in the lines that follow: 
+\\[1ex]
+
+C: \emph{I feel the contents of the paper interesting, but more suitable for a technical note than a full research paper, as it just regards the details of the calculations needed in methods illustrated elsewhere.}
+
+A: I can see the referee's point. Indeed, the article is quite technical, with a lot of mathematical formulae and it is intended for the narrow field of PMT calibration and monitoring. 
+
+Nonetheless, I must equally mention that the Dossi model has been published in the distant 2000 and since then no analytical solution has been offered. 
+At least, no other solution with the same level of accuracy and precision. 
+As a quick example, I can refer to the DarkSide paper:
+\\[1ex]
+
+DarkSide collaboration, Light Yield in DarkSide-10: A Prototype Two-Phase Argon TPC for Dark Matter Searches, Astropart. Phys. 49 (2013) 44 [arXiv:1204.6218].
+\\[1ex]
+
+\noindent where the Dossi model is employed. 
+The authors solved the equations numerically for the first two PE peaks and higher peaks were approximated with symmetric gausssians. 
+And even though I am not acquainted with the fine details of the DarkSide paper, from my work I can tell that such an approach is bound to fail
+for large values of $\mu$. Not to mention the running time that is needed to compute the various convolutions numerically.  
+
+In striking contrast, the model that I have presented can incorporate higher PE corrections with only a few lines of code. 
+A solution exists in a closed form and the software can run with only a few seconds of execution time. 
+I personally believe that this is a significant improvement over the existing approximate methods and the paper is worthy of a NIMA publication.  
+
+I have added the following lines in the text (Section 5, Outlook) to highlight these points:
+\\[1ex]
+
+Finally, we should also mention that the machinery developed in this article comprises the first analytical solution of the Dossi model. 
+As an example, we can refer to the Darkside paper, ref.~[9], where the equations were solved numerically for the first two PE peaks 
+and higher peaks were approximated with symmetric gaussians. 
+This approach is accurate only for small values of $\mu$, where the non-gaussian tails of $S^{(n)}(x)$ can be neglected. 
+In striking contrast, the model of this article can incorporate higher PE corrections, in the software, with only a few lines of code. 
+Additionally, a solution exists in a closed form and a single spectrum can be analyzed in just a few seconds of execution time. 
+We believe that this is an important improvement over the existing approximate methods. 
+\\[1ex]
+
+C: \emph{ line 14-19 please add some explanations for S(x) and define the various used items, such as $g_N$, Q, H(x) ... }
+
+A: The lines of text have been added :
+\\[1ex]
+Years later, R. Dossi \emph{et al.} proposed a specific model for the single photoelectron (SPE) response function $S(x)$ that can treat a vast number of PMTs~[2]. 
+It was based on a carefully chosen combination of an exponential and a truncated gaussian distribution:
+\begin{align}
+S(x) =    \left( \ w \alpha e^{-\alpha x } + \frac{(1-w)}{g_N} \frac{1}{\sqrt{2\pi}\sigma} e^{ - \frac{( x - Q )^2}{2\sigma^2}} \ \right) H(x).       \label{eq:S}
+\end{align}
+Note that photoelectrons that backscatter and miss the first amplification stage are modeled in $S(x)$ through the exponential term. 
+The slope of the exponential is $\alpha$ and the $w$ pre-factor parametrizes the probability for this process to happen. 
+A better discussion of this, with further experimental tests, can be found in ref.~[2]. 
+$H(x)$ is the Heaviside step function and $Q$ and $\sigma$ are the parameters of the truncated gaussian that models the amplification of the full dynode chain.  
+The $g_N$ factor ensures that the truncated gaussian is properly normalized and equals to:
+\begin{align}
+g_N = \frac{1}{2} \textrm{erfc} \left( - \frac{Q}{\sqrt{2}\sigma} \right), 
+\end{align}
+where erfc($z$) is the complementary error function~[3]. 
+\\[1ex]
+
+C:\emph{line 48... please define $S_R(x)$ ...}
+
+A: The lines of the text have been modified to make this clearer:
+\\[1ex]
+
+The behavior of a PMT, when illuminated with light pulses of constant number of photons, is dictated by the charge response function $S_R(x)$:
+\\[1ex]
+
+C: line 73 recieves $->$ receives
+
+A: Done
+\\[1ex]
+
+C: line 96 lied $->$ was
+
+A: Done
+\\[1ex]
+
+C: \emph{line 162-189 please put a figure illustrating the used setup}
+
+A: Done 
+\\[1ex]
+
+C1: \emph{Table 1 how these results compare with the other outlined calibration methods ?}
+
+C2: \emph{Table 2 what will be the results instead with method of reference [2]?}
+
+A: I took the liberty to answer both referee's comments with a single answer. 
+Mainly because they fall in the \emph{Comparison} section of the article. Kill two birds with the same stone. 
+So, all three methods should return the same results of tables 1 and 2. 
+A comparison of the DFT and numerical integration methods is presented in ref.~5. 
+The only thing is that the numerical integration gives a slightly worse  $\chi^2$/NDOF and took more time to analyze the data.  
+ 
+I have added the paragraph in subsection 4.2 :
+\\[1ex]
+
+Furthermore, in ref.~5 we have analyzed the same data set using the numerical integration method mentioned in section~1.  
+To simplify the calculations only the first PE peak was worked out numerically and higher peaks were approximated with perfectly symmetric gaussians. 
+It was shown that inside the $\mu$ = 0.5 -- 2.0 window the numerical integration gave the same results as the DFT approach. 
+So, we can expect all three techniques to provide the same figures of tables 1 and 2. 
+Additionally, it should be mentioned that the numerical integration gave a slightly worse $\chi^2$/NDOF and took more time to analyze this data set. 
+Calculating more peaks numerical will improve $\chi^2$/NDOF but at the same time will increase the execution time rendering the method almost inapplicable. 
+More details can be found in ref.~5. 
+\\[1ex]
+
+C2: \emph{fig 3 please add chi2/NDOF as in previous fig1}
+
+A: Good point ! Done !
+
+\end{document}
